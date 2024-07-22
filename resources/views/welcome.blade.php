@@ -2,7 +2,7 @@
 @section('content')
     @include('components/navbar')
 
-    <div class="w-[70%e] mx-auto">
+    <div class="w-[70%] mx-auto">
         @include('components/category')
     </div>
 
