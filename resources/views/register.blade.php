@@ -21,7 +21,7 @@
 
                     <div class="flex w-full flex-col mt-4">
                         <label for="firstname" class="text-sm">Fullname</label>
-                            <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="John Doe" type="text" name="nama" required autofocus>
+                        <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="John Doe" type="text" name="nama" required autofocus>
                     </div>
 
                     {{-- 2 COLUMN INPUT --}}
