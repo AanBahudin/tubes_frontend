@@ -10,11 +10,13 @@ class OwnerController extends Controller
     public function index(Request $request) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
         $username = $request->session()->get('username');
+        $role = $request->session()->get('role');
 
         return view('ownerPage/dashboard', [
             'isLoggedIn' => $isLoggedIn,
             'title' => 'Dashboard - Manage your property',
-            'username' => $username
+            'username' => $username,
+            'role' => $role
         ]);
     }
 
