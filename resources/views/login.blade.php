@@ -10,7 +10,7 @@
                 <h1 class="text-2xl font-semibold mb-3">JOIN FOR FREE</h1>
                 <h5 class="text-4xl font-semibold leading-relaxed mb-5">Unleash the traveler <br><span class="text-primary">inside YOU</span>, Enjoy your<br> dream Vacation</h5>
                 <p class="text-sm mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button class="border-none px-7 py-2 bg-primary text-white rounded-md">Explore</button>
+                <button class="px-7 py-2 border grow-0 border-primary bg-white text-primary rounded-md ease-in-out duration-150 hover:shadow-lg cursor-default">Explore</button>
             </main>
 
             <main class="flex-1">

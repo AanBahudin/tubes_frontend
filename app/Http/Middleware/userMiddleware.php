@@ -25,7 +25,13 @@ class userMiddleware
             if (!$isLoggedIn) {
                 return redirect('/');
             } else {
-                return $next($request);
+                if ($currentUrl == "wishlist" && $role == "OWNER") {
+                    return redirect('/owner/dashboard');
+                } else if ($currentUrl == "wishlist" && $role == "ADMIN") {
+                    return redirect('/admin/dashboard');
+                } else {
+                    return $next($request);
+                }
             }
         }
 

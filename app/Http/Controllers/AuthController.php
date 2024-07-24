@@ -35,12 +35,12 @@ class AuthController extends Controller
 
     public function registerPage(Request $request) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
-        $isLoggedIn = $request->session()->get('isLoggedIn');
+        $username = $request->session()->get('username');
 
         return view('register', [
             'title' => 'Create your own account',
             'isLoggedIn' => $isLoggedIn,
-            // 'username' => $username
+            'username' => $username
         ]);
     }
 
@@ -91,7 +91,7 @@ class AuthController extends Controller
         $validateUser['password'] = Hash::make($request->password);
         Pengguna::create($validateUser);
 
-        return redirect('/');
+        return redirect('/login');
     }
 
     public function logout(Request $request) {
