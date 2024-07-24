@@ -19,8 +19,17 @@ class UserController extends Controller
         ]);
     }
 
-    public function productDetail(String $id) {
-        return view('detail_property');
+    public function productDetail(Request $request, String $id) {
+        $isLoggedIn = $request->session()->get('isLoggedIn');
+        $username = $request->session()->get('username');
+        $role = $request->session()->get('role');
+
+        return view('detail_property', [
+            'title' => "Product Detail",
+            'isLoggedIn' => $isLoggedIn,
+            'username' => $username,
+            'role' => $role
+        ]);
     }
     
     public function showProfile(Request $request) {
