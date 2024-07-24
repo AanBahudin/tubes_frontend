@@ -164,7 +164,7 @@
                         </svg>
                     </div>
                     
-                    <span id="bathNumber" class="text-3xl my-auto font-semibold">0</span>
+                    <span id="bathNumber" class="text-3xl my-auto font-semibold pointer-events-none">0</span>
                     
                     <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('bath', 'inc')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
@@ -176,7 +176,7 @@
 
             
             {{-- Amenities --}}
-            <h1 class="font-semibold mt-9 mb-5 text-lg">Accomodation Details</h1>
+            <h1 class="font-semibold mt-9 mb-5 text-lg pointer-events-none">Accomodation Details</h1>
 
             <div class="w-full grid grid-cols-2 gap-y-3">
                 <div class="flex gap-x-2 font-semibold">
@@ -280,6 +280,13 @@
                 </div>
             </div>
 
+
+            {{-- INPUT FOR ACCOMODATION --}}
+            <input type="hidden" name="guest" id="guestInput">
+            <input type="hidden" name="guest" id="bedroomInput">
+            <input type="hidden" name="guest" id="bedInput">
+            <input type="hidden" name="guest" id="bathInput">
+
             <button type="submit"  class="bg-primary py-2 px-8 text-white font-semibold rounded-md mt-10 cursor-default">Create Property</button>
         </form>
     </div>
@@ -293,6 +300,12 @@
         let numberOfBedroom = document.getElementById('bedroomNumber');
         let numberOfBeds = document.getElementById('bedNumber');
         let numberOfBaths = document.getElementById('bathNumber')
+
+        // get each input for accomodations
+        const guestInput = document.getElementById('guestInput');
+        const bedroomInput = document.getElementById('bedroomInput');
+        const bedInput = document.getElementById('bedInput');
+        const bathInput = document.getElementById('bathInput');
 
         
         const addNumberOfAccomodation = (accomodation, buttonType) => {
@@ -310,6 +323,7 @@
                     }
                 }
 
+                guestInput.value = currentNumberOfGuest
                 numberOfGuest.textContent = currentNumberOfGuest
 
             } else if (accomodation === 'bedroom') {
@@ -324,6 +338,7 @@
                     }
                 }
 
+                bedroomInput.value = currentNumberOfBedroom
                 numberOfBedroom.textContent = currentNumberOfBedroom
             } else if (accomodation === 'bed' ) {
                 let currentNumberOfBed = parseInt(numberOfBeds.textContent, 10);
@@ -337,6 +352,7 @@
                     }
                 }
 
+                bedInput.value = currentNumberOfBed
                 numberOfBeds.textContent = currentNumberOfBed
             } else {
                 let currentNumberOfBaths = parseInt(numberOfBaths.textContent, 10);
@@ -350,6 +366,7 @@
                     }
                 }
 
+                bathInput.value = currentNumberOfBaths
                 numberOfBaths.textContent = currentNumberOfBaths
             }
         }
