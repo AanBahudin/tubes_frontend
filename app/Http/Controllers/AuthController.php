@@ -14,6 +14,7 @@ class AuthController extends Controller
     {
         $isLoggedIn = $request->session()->get('isLoggedIn');
         $role = $request->session()->get('role');
+        $username = $request->session()->get('username');
 
         if ($isLoggedIn) {
             if ($role == "ADMIN") {
@@ -27,7 +28,8 @@ class AuthController extends Controller
 
         return view('login', [
             'title' => 'Login in to your account',
-            'isLoggedIn' => $isLoggedIn
+            'isLoggedIn' => $isLoggedIn,
+            'username' => $username
         ]);
     }
 
@@ -35,7 +37,8 @@ class AuthController extends Controller
         $isLoggedIn = $request->session()->get('isLoggedIn');
         return view('register', [
             'title' => 'Create your own account',
-            'isLoggedIn' => $isLoggedIn
+            'isLoggedIn' => $isLoggedIn,
+            'username' => $username
         ]);
     }
 
@@ -49,7 +52,7 @@ class AuthController extends Controller
         $isEmailExist = Pengguna::where('email', $email)->first();
 
         if (!$isEmailExist) {
-            dd("email is found!");
+            dd("email is not found!");
 
             // later throw new error message
         }
@@ -64,6 +67,7 @@ class AuthController extends Controller
 
         Session::put('user_id', $isEmailExist->id);
         Session::put('nama', $isEmailExist->nama);
+    Session::put('username', $isEmailExist->username);
         Session::put('email', $isEmailExist->email);
         Session::put('role', $isEmailExist->role);
         Session::put('isLoggedIn', TRUE);

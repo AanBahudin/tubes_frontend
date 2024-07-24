@@ -27,13 +27,13 @@
                     {{-- PASSWORD --}}
                     <div class="flex w-full flex-col mt-4">
                         <label for="password" class="text-sm">Password</label>
-                        <input class="block border-2 border-slate-100 px-3 py-1 text-sm rounded-md w-full mt-2 focus:outline-primary" type="password" placeholder="******" name="password" required>
+                        <input id="passwordInput" class="block border-2 border-slate-100 px-3 py-1 text-sm rounded-md w-full mt-2 focus:outline-primary" type="password" placeholder="******" name="password" required>
                     </div>
                     
                     {{-- SHOW PASSWORD CHECKBOX --}}
                     <div class="flex gap-x-4 mt-2">
                         <input class="block" type="checkbox" name="showPassword" id="showPassword">
-                        <label class="text-sm" for="showPassword">Show Password</label>
+                        <label id="showPassword" class="text-sm" for="showPassword" onchange="showPasswordfunc()">Show Password</label>
                     </div>
 
                     <button type="submit" class="bg-primary flex-1 w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">LOGIN</button>
@@ -50,6 +50,8 @@
         const descriptionRole = document.getElementById("descriptionRole");
         const userRoleInput = document.getElementById('roleInput')
 
+        const showPasswordCheckbox = document.getElementById('showPassword');
+        const passwordInput = document.getElementById('passwordInput');
 
         userRole.classList.add('border', 'border-primary');
         descriptionRole.textContent = "you can select property to stay";
@@ -74,6 +76,15 @@
             })
         }
         
+        const showPasswordfunc = () => {
+            showPasswordCheckbox.addEventListener('change', function(event) {
+                if (showPasswordCheckbox.checked) {
+                    passwordInput.type = 'text'
+                } else {
+                    passwordInput.type = 'password'
+                }
+            })
+        }
 
     </script>
 @endsection

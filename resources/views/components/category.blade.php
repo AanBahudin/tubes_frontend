@@ -1,4 +1,4 @@
-<div class="py-12 grid grid-cols-10 overflow-x-auto">
+<div class="py-12 grid grid-cols-10 ">
     <a href="" class="group">
         <main class="m-auto flex flex-col items-center w-[100px]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">

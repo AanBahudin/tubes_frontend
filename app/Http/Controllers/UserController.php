@@ -8,10 +8,14 @@ class UserController extends Controller
 {
     public function index(Request $request) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
+        $username = $request->session()->get('username');
+        $role = $request->session()->get('role');
 
         return view('welcome', [
             'title' => "GoHotels",
-            'isLoggedIn' => $isLoggedIn
+            'isLoggedIn' => $isLoggedIn,
+            'username' => $username,
+            'role' => $role
         ]);
     }
 
@@ -30,10 +34,12 @@ class UserController extends Controller
 
     public function showWishlist(Request $request) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
+        $username = $request->session()->get('username');
 
         return view('userPage/wishlist', [
             'title' => "Wishlist",
-            'isLoggedIn' => $isLoggedIn
+            'isLoggedIn' => $isLoggedIn,
+            'username' => $username
         ]);
     }
 

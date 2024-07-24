@@ -9,15 +9,27 @@ class OwnerController extends Controller
 {
     public function index(Request $request) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
+        $username = $request->session()->get('username');
+        $role = $request->session()->get('role');
+
         return view('ownerPage/dashboard', [
             'isLoggedIn' => $isLoggedIn,
             'title' => 'Dashboard - Manage your property',
+            'username' => $username,
+            'role' => $role
         ]);
     }
 
-    public function tambahData() {
+    public function tambahData(Request $request) {
+        $username = $request->session()->get('username');
+        $isLoggedIn = $request->session()->get('isLoggedIn');
+        $role = $request->session()->get('role');
+
         return view('ownerPage/tambahData', [
             'title' => 'Add Property - Create your own property',
+            'username' => $username,
+            'isLoggedIn' => $isLoggedIn,
+            'role' => $role
         ]);
     }
 
