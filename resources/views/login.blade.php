@@ -21,7 +21,7 @@
                     {{-- EMAIL --}}
                     <div class="flex w-full flex-col mt-4">
                         <label for="email" class="text-sm">Email</label>
-                        <input class="block border-2 border-slate-100 px-3 py-1 rounded-md text-sm w-full mt-2 focus:outline-primary placeholder:text-sm" type="email" placeholder="johndoe@gmail.com" name="email" required autofocus>
+                        <input class="block border-2 border-slate-100 px-3 py-1 rounded-md text-sm w-full mt-2 focus:outline-primary placeholder:text-sm" type="email" placeholder="johndoe@gmail.com" name="email" required autofocus autocomplete="off">
                     </div>
 
                     {{-- PASSWORD --}}

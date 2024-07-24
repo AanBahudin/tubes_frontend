@@ -20,7 +20,6 @@ class userMiddleware
         $currentUrl = request()->segment(count(request()->segments()));
 
         if ($currentUrl == "wishlist" || $currentUrl == "profile") {
-            
             // checking if user haven't logged in
             if (!$isLoggedIn) {
                 return redirect('/');
