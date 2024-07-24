@@ -45,7 +45,7 @@
             <a class="w-full {{$isLoggedIn ? 'hidden' : 'visible'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/register">Register</a>
 
             <a class="w-full {{$isLoggedIn == TRUE && $role == 'USER' ? 'visible' : 'hidden'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/wishlist">Wishlist</a>
-            <a class="w-full {{$isLoggedIn ? 'visible' : 'hidden'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/owner/add">Add Property</a>
+            <a class="w-full {{$isLoggedIn && $role == 'OWNER' ? 'visible' : 'hidden'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/owner/add">Add Property</a>
             <a class="w-full {{$isLoggedIn ? 'visible' : 'hidden'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/profile">Profile</a>
             <a class="w-full {{$isLoggedIn ? 'visible' : 'hidden'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/auth/logout">Logout</a>
         </div>

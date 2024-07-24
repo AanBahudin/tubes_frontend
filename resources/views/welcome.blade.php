@@ -7,7 +7,7 @@
     </div>
 
     {{-- CARD SECTION --}}
-    <div class="w-full -z-10 md:w-fullSize mx-auto grid grid-cols-1 justify-items-center md:grid-cols-3 xl:grid-cols-4 gap-10 p-4">
+    <div class="w-full relative -z-10 md:w-fullSize mx-auto grid grid-cols-1 justify-items-center md:grid-cols-3 xl:grid-cols-4 gap-10 p-4">
         @include('components/card')
     </div>
 @endsection
