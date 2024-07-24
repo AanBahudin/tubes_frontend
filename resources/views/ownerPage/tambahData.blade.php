@@ -86,7 +86,7 @@
                 </main>
 
                 <main class="flex justify-center gap-x-5">
-                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100">
+                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('guest', 'dec')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
                         </svg>
@@ -94,7 +94,7 @@
                     
                     <span id="guestNumber" class="text-3xl my-auto font-semibold">0</span>
                     
-                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100">
+                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('guest', 'inc')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
@@ -110,7 +110,7 @@
                 </main>
 
                 <main class="flex justify-center gap-x-5">
-                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100">
+                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('bedroom', 'dec')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
                         </svg>
@@ -118,7 +118,7 @@
                     
                     <span id="bedroomNumber" class="text-3xl my-auto font-semibold">0</span>
                     
-                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100">
+                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('bedroom', 'inc')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
@@ -134,7 +134,7 @@
                 </main>
 
                 <main class="flex justify-center gap-x-5">
-                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100">
+                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('bed', 'dec')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
                         </svg>
@@ -142,7 +142,7 @@
                     
                     <span id="bedNumber" class="text-3xl my-auto font-semibold">0</span>
                     
-                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100">
+                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('bed', 'inc')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
@@ -158,7 +158,7 @@
                 </main>
 
                 <main class="flex justify-center gap-x-5">
-                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100">
+                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('bath', 'dec')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
                         </svg>
@@ -166,7 +166,7 @@
                     
                     <span id="bathNumber" class="text-3xl my-auto font-semibold">0</span>
                     
-                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100">
+                    <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('bath', 'inc')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
@@ -283,4 +283,77 @@
             <button type="submit"  class="bg-primary py-2 px-8 text-white font-semibold rounded-md mt-10 cursor-default">Create Property</button>
         </form>
     </div>
+
+
+
+    <script>
+        
+        // get number of each accomodations
+        let numberOfGuest = document.getElementById('guestNumber');
+        let numberOfBedroom = document.getElementById('bedroomNumber');
+        let numberOfBeds = document.getElementById('bedNumber');
+        let numberOfBaths = document.getElementById('bathNumber')
+
+        
+        const addNumberOfAccomodation = (accomodation, buttonType) => {
+            if (accomodation === "guest") {
+
+                let currentNumberOfGuest = parseInt(numberOfGuest.textContent, 10);
+
+                if (buttonType === 'inc') {
+                    currentNumberOfGuest += 1;
+                } else {
+                    if (currentNumberOfGuest <= 0) {
+                        currentNumberOfGuest = 0
+                    } else {
+                        currentNumberOfGuest -= 1;
+                    }
+                }
+
+                numberOfGuest.textContent = currentNumberOfGuest
+
+            } else if (accomodation === 'bedroom') {
+                let currentNumberOfBedroom = parseInt(numberOfBedroom.textContent, 10);
+                if (buttonType === 'inc') {
+                    currentNumberOfBedroom += 1;
+                } else {
+                    if (currentNumberOfBedroom <= 0) {
+                        currentNumberOfBedroom = 0
+                    } else {
+                        currentNumberOfBedroom -= 1;
+                    }
+                }
+
+                numberOfBedroom.textContent = currentNumberOfBedroom
+            } else if (accomodation === 'bed' ) {
+                let currentNumberOfBed = parseInt(numberOfBeds.textContent, 10);
+                if (buttonType === 'inc') {
+                    currentNumberOfBed += 1;
+                } else {
+                    if (currentNumberOfBed <= 0) {
+                        currentNumberOfBed = 0
+                    } else {
+                        currentNumberOfBed -= 1;
+                    }
+                }
+
+                numberOfBeds.textContent = currentNumberOfBed
+            } else {
+                let currentNumberOfBaths = parseInt(numberOfBaths.textContent, 10);
+                if (buttonType === 'inc') {
+                    currentNumberOfBaths += 1;
+                } else {
+                    if (currentNumberOfBaths <= 0) {
+                        currentNumberOfBaths = 0
+                    } else {
+                        currentNumberOfBaths -= 1;
+                    }
+                }
+
+                numberOfBaths.textContent = currentNumberOfBaths
+            }
+        }
+
+
+    </script>
 @endsection
