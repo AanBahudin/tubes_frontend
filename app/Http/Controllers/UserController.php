@@ -25,10 +25,14 @@ class UserController extends Controller
     
     public function showProfile(Request $request) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
+        $username = $request->session()->get('username');
+        $role = $request->session()->get('role');
 
         return view('profile', [
             'title' => "Profile",
-            'isLoggedIn' => $isLoggedIn
+            'isLoggedIn' => $isLoggedIn,
+            'username' => $username,
+            'role' => $role
         ]);
     }
 

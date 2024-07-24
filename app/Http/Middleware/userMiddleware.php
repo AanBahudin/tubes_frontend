@@ -16,9 +16,23 @@ class userMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         $isLoggedIn = $request->session()->get('isLoggedIn');
+        $role = $request->session()->get('role');
+        $currentUrl = request()->segment(count(request()->segments()));
 
-        if (!$isLoggedIn) {
-            return redirect('/');
+        if ($currentUrl == "wishlist" || $currentUrl == "profile") {
+            
+            // checking if user haven't logged in
+            if (!$isLoggedIn) {
+                return redirect('/');
+            } else {
+                return $next($request);
+            }
+        }
+
+        if ($role == "ADMIN") {
+            return redirect('/admin/dashboard');
+        } else if ($role == "OWNER") {
+            return redirect('/owner/dashboard');
         }
 
         return $next($request);

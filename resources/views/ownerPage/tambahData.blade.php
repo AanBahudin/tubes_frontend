@@ -3,7 +3,7 @@
     @include('components/navbar')
     
     <div class="w-fullSize mx-auto font-poppins">
-        @include('components/breadcrumbs', ['params' => "Create Property"])
+        @include('components/breadcrumbs', ['url' => "dashboard", 'params' => "Create Property"])
 
         <form method="POST" enctype="multipart/form-data" class="p-10 border border-slate-200 rounded-md">
             @csrf

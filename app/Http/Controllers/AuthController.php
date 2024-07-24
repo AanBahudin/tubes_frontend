@@ -67,7 +67,7 @@ class AuthController extends Controller
 
         Session::put('user_id', $isEmailExist->id);
         Session::put('nama', $isEmailExist->nama);
-    Session::put('username', $isEmailExist->username);
+        Session::put('username', $isEmailExist->username);
         Session::put('email', $isEmailExist->email);
         Session::put('role', $isEmailExist->role);
         Session::put('isLoggedIn', TRUE);

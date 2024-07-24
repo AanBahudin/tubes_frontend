@@ -24,7 +24,7 @@ Route::get('/auth/logout', [AuthController::class, 'logout']);
 
 
 // USER
-Route::get('/', [UserController::class, 'index']);
+Route::get('/', [UserController::class, 'index'])->middleware(userMiddleware::class);
 Route::get('/wishlist', [UserController::class, 'showWishlist'])->middleware(userMiddleware::class);
 Route::get('/profile', [UserController::class, 'showProfile'])->middleware(userMiddleware::class);;
 Route::get('/product/{id}', [UserController::class, 'productDetail']);

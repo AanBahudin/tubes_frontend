@@ -16,8 +16,9 @@ class checkOwnerMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         $role = $request->session()->get('role');
+        $isLoggedIn = $request->session()->get('isLoggedIn');
         
-        if ($role != "OWNER") {
+        if ($role != "OWNER" && !$isLoggedIn) {
             return redirect('/');
         }
 
