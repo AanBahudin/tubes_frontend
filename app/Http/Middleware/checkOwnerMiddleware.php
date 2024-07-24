@@ -18,7 +18,7 @@ class checkOwnerMiddleware
         $role = $request->session()->get('role');
         $isLoggedIn = $request->session()->get('isLoggedIn');
         
-        if ($role != "OWNER" && !$isLoggedIn) {
+        if ($role != "OWNER") {
             return redirect('/');
         }
 

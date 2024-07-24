@@ -35,10 +35,12 @@ class AuthController extends Controller
 
     public function registerPage(Request $request) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
+        $isLoggedIn = $request->session()->get('isLoggedIn');
+
         return view('register', [
             'title' => 'Create your own account',
             'isLoggedIn' => $isLoggedIn,
-            'username' => $username
+            // 'username' => $username
         ]);
     }
 

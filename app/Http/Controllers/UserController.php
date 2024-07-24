@@ -39,11 +39,13 @@ class UserController extends Controller
     public function showWishlist(Request $request) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
         $username = $request->session()->get('username');
+        $role = $request->session()->get('role');
 
         return view('userPage/wishlist', [
             'title' => "Wishlist",
             'isLoggedIn' => $isLoggedIn,
-            'username' => $username
+            'username' => $username,
+            'role'=> $role
         ]);
     }
 
