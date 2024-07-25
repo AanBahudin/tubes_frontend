@@ -39,6 +39,7 @@
                     <button type="submit" class="bg-primary flex-1 w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">LOGIN</button>
 
                 </form>
+                <h3 class="text-center my-4 font-semibold text-sm">Don't have an account? <a href="/register" class="text-primary text-center">Register here</a></h3>
             </main>
         </section>
     </div>

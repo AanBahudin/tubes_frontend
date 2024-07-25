@@ -82,8 +82,9 @@
                     </div>
 
                     <button type="submit" class="bg-primary flex-1 w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Create Account</button>
-
+                    
                 </form>
+                <h3 class="text-center my-4 font-semibold text-sm">Already has an account? <a href="/login" class="text-primary text-center">Login here</a></h3>
             </main>
         </section>
     </div>
