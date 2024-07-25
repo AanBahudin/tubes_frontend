@@ -5,7 +5,7 @@
     <div class="w-fullSize mx-auto font-poppins">
         @include('components/breadcrumbs', ['url' => "dashboard", 'params' => "Create Property"])
 
-        <form method="POST" enctype="multipart/form-data" class="p-10 border border-slate-200 rounded-md">
+        <form method="POST" action="/owner/tambah" enctype="multipart/form-data" class="p-10 border border-slate-200 rounded-md">
             @csrf
             <h1 class="text-lg mb-5 font-semibold">General Info</h1>
 
@@ -13,7 +13,7 @@
             <div class="w-full flex gap-x-10 justify-between">
                 <main class="flex-1">
                     <label for="title" class="text-sm">Name (20 Limit)</label>
-                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="text" name="name" required autofocus>
+                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="text" name="nama" required autofocus>
                 </main>
 
                 <main class="flex-1">
@@ -26,7 +26,7 @@
             <div class="w-full flex gap-x-10 justify-between my-5">
                 <main class="flex-1">
                     <label for="title" class="text-sm">Price $</label>
-                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="text" name="name" required autofocus>
+                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="number" name="price" required autofocus>
                 </main>
 
                 <main class="flex-1">
@@ -54,7 +54,7 @@
             <div class="w-full flex gap-x-10 justify-between">
                 <main class="flex-1">
                     <label for="title" class="text-sm">Country</label>
-                    <select class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" name="categories" id="categories">
+                    <select class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" name="country" id="country">
                         <option value="Indonesia">Indonesia</option>
                         <option value="AIRSTREAM">Airstream</option>
                         <option value="TENT">Tent</option>
@@ -70,7 +70,7 @@
 
                 <main class="flex-1">
                     <label for="image" class="text-sm">Image</label>
-                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="file" name="tagline" required>
+                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="file" name="image" required>
                 </main>
             </div>
 
@@ -79,7 +79,7 @@
             {{-- ACCOMODATION --}}
 
             {{-- GUEST --}}
-            <div class="w-full flex justify-between p-6 border border-slate-200 rounded-lg shadow-sm">
+            <div class="w-full flex justify-between p-6 border border-slate-200 rounded-lg shadow-lg">
                 <main>
                     <h5 class="font-semibold">Guest</h5>
                     <p class="text-gray-500">Specify the number of guests</p>
@@ -103,7 +103,7 @@
             </div>
 
             {{-- BEDROOMS --}}
-            <div class="w-full flex justify-between p-6 border border-slate-200 rounded-lg shadow-sm my-4">
+            <div class="w-full flex justify-between p-6 border border-slate-200 rounded-lg shadow-lg my-4">
                 <main>
                     <h5 class="font-semibold">Bedrooms</h5>
                     <p class="text-gray-500">Specify the number of bedrooms</p>
@@ -127,7 +127,7 @@
             </div>
 
             {{-- BED --}}
-            <div class="w-full flex justify-between p-6 border border-slate-200 rounded-lg shadow-sm my-4">
+            <div class="w-full flex justify-between p-6 border border-slate-200 rounded-lg shadow-lg my-4">
                 <main>
                     <h5 class="font-semibold">Bed</h5>
                     <p class="text-gray-500">Specify the number of Bed</p>
@@ -151,7 +151,7 @@
             </div>
 
             {{-- BATHS --}}
-            <div class="w-full flex justify-between p-6 border border-slate-200 rounded-lg shadow-sm my-4">
+            <div class="w-full flex justify-between p-6 border border-slate-200 rounded-lg shadow-lg my-4">
                 <main>
                     <h5 class="font-semibold">Baths</h5>
                     <p class="text-gray-500">Specify the number of baths</p>
@@ -283,9 +283,9 @@
 
             {{-- INPUT FOR ACCOMODATION --}}
             <input type="hidden" name="guest" id="guestInput">
-            <input type="hidden" name="guest" id="bedroomInput">
-            <input type="hidden" name="guest" id="bedInput">
-            <input type="hidden" name="guest" id="bathInput">
+            <input type="hidden" name="bedroom" id="bedroomInput">
+            <input type="hidden" name="bed" id="bedInput">
+            <input type="hidden" name="bath" id="bathInput">
 
             <button type="submit"  class="bg-primary py-2 px-8 text-white font-semibold rounded-md mt-10 cursor-default">Create Property</button>
         </form>

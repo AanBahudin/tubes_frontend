@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\HotelModel;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,11 +11,14 @@ class UserController extends Controller
         $username = $request->session()->get('username');
         $role = $request->session()->get('role');
 
+        $Products = HotelModel::all()->paginate(2);
+
         return view('welcome', [
             'title' => "GoHotels",
             'isLoggedIn' => $isLoggedIn,
             'username' => $username,
-            'role' => $role
+            'role' => $role,
+            'products' => $Products
         ]);
     }
 

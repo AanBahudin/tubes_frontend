@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ImageModelController;
 
 // middleware
 use App\Http\Middleware\checkOwnerMiddleware;
@@ -43,3 +44,4 @@ Route::get('/owner/dashboard', [OwnerController::class, 'index'])->middleware(ch
 Route::get('/owner/add', [OwnerController::class, 'tambahData'])->middleware(checkOwnerMiddleware::class);
 Route::get('/owner/edit/{id}', [OwnerController::class, 'editData'])->middleware(checkOwnerMiddleware::class);
 
+Route::post('/owner/tambah', [OwnerController::class, 'store'])->middleware(checkOwnerMiddleware::class);

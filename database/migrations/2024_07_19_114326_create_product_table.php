@@ -13,20 +13,17 @@ return new class extends Migration
     {
         Schema::create('product', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('rating');
-            $table->string('description');
+            $table->string('nama');
+            $table->string('tagline');
             $table->string('price');
-            $table->string('image');
-            // location
+            $table->string('categories');
+            $table->string('description');
             $table->string('country');
-            $table->string('city');
-            // should be an array
-            $table->string('reviews');
-            $table->string('period_time');
-            $table->string('facility');
-            $table->string('bed_size');
-            $table->string('type');
+            $table->string('image');
+            $table->string('guest');
+            $table->string('bedroom');
+            $table->string('bed');
+            $table->string('bath');
             $table->timestamps();
         });
     }

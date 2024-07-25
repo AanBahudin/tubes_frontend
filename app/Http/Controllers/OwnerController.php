@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\HotelModel;
 use Illuminate\Support\Facades\Session;
 
 class OwnerController extends Controller
@@ -12,11 +13,14 @@ class OwnerController extends Controller
         $username = $request->session()->get('username');
         $role = $request->session()->get('role');
 
+        $Products = HotelModel::all();
+
         return view('ownerPage/dashboard', [
             'isLoggedIn' => $isLoggedIn,
             'title' => 'Dashboard - Manage your property',
             'username' => $username,
-            'role' => $role
+            'role' => $role,
+            'products' => $Products
         ]);
     }
 
@@ -47,8 +51,26 @@ class OwnerController extends Controller
     }
 
     public function store(Request $request)
-    {
-        //
+    {   
+        $validateProduct = $request->validate([
+            'nama' => 'required|max:20',
+            'tagline' => 'required|max:30',
+            'price' => 'required|numeric',
+            'categories' => 'required',
+            'description' => 'required|max:1000',
+            'country' => 'required',
+            'image' => 'required|max:1024',
+            'guest' => 'required',
+            'bedroom' => 'required',
+            'bed' => 'required',
+            'bath'=> 'required'
+        ]);
+        
+
+        $validateProduct['image'] = $request->file('image')->store('product');
+    
+        HotelModel::create($validateProduct);
+        return redirect('/owner/dashboard');
     }
 
     /**
