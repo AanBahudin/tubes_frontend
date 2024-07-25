@@ -33,9 +33,16 @@ class OwnerController extends Controller
         ]);
     }
 
-    public function editData(String $id) {
-        return view('ownerPage/editPage', [
-            'title' => 'Edit Propery'
+    public function editData(Request $request, String $id) {
+        $username = $request->session()->get('username');
+        $isLoggedIn = $request->session()->get('isLoggedIn');
+        $role = $request->session()->get('role');
+
+        return view('ownerPage/editData', [
+            'title' => 'Edit Propery',
+            'username' => $username,
+            'isLoggedIn' => $isLoggedIn,
+            'role' => $role
         ]);
     }
 

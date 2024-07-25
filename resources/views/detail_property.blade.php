@@ -2,10 +2,17 @@
 @section('content')
     @include('components/navbar')
 
-    <div class="w-[85%] mx-auto font-poppins">
+    <div class="w-[85%] mx-auto font-poppins pb-10">
         @include('components/breadcrumbs', ['url' => '/', 'params' => "Cozy Cabin in Arizona" ])
 
-        <h1 class="text-3xl font-bold">Dream Getaway Awaits You Here</h1>
+        <main class="flex justify-between w-full">
+            <h1 class="text-3xl font-bold">Dream Getaway Awaits You Here</h1>
+            <div class="border rounded-md py-1 px-2 flex justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 my-auto">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                  </svg>                  
+                </div>
+        </main>
         <img class="rounded-md my-8 object-bottom object-cover h-[500px] w-full" src="{{ asset('detail_cabin.jpg')}}" alt="">
 
         <h4 class="font-bold text-lg">Cabin in Arizona</h4>
@@ -53,10 +60,13 @@
             </main>
         </div>
         
-        <button type="submit" class="bg-primary flex-1 py-2 px-6 text-white font-semibold text-md rounded-md my-8 cursor-default">Leave a Review</button>
+        {{-- leave a review --}}
+
+
+        <button type="submit" class="bg-primary {{ $role == "OWNER" || $role == "ADMIN" ? 'hidden' : 'flex-1' }} py-2 px-6 text-white font-semibold text-md rounded-md my-8 cursor-default">Leave a Review</button>
 
         {{-- review container --}}
-        <div class="w-full rounded-md py-10 px-8 border border-slate-200 mb-10">
+        <div class="w-full {{ $role == "OWNER" || $role == "ADMIN" ? 'hidden' : 'block' }} rounded-md py-10 px-8 border border-slate-200 mb-10">
 
             <label for="rating">Rating</label>
             <select class="block border-2 border-slate-200 px-3 py-1 rounded-md w-1/4 text-sm mt-2 focus:outline-primary placeholder:text-sm" name="rating" id="rating">
@@ -70,6 +80,12 @@
             <label for="feedback mt-4">Feedback</label>
             <textarea class="border border-slate-200 w-full resize-none p-4 text-sm rounded-md focus:outline-primary mt-2" name="description" id="description" cols="30" rows="5"></textarea>
         </div>
+
+
+        <div class="my-16 gap-x-6 {{ $role != "OWNER" ? 'hidden' : '' }}">
+            <a href="/owner/edit/{{1}}" class="bg-primary flex-initial w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Edit Property</a>
+            <a href="" class="bg-red-500 flex-initial w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Delete Property</a>
+        </div>
     </div>
 
-@endsection
+@endsectionw

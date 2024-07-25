@@ -1,5 +1,5 @@
 {{-- CARD CONTAINER --}}
-<a class="max-w-[280px] group cursor-default font-poppins" href="/product/1">
+<a class="max-w-[280px] group cursor-default font-poppins pointer-events-auto" href="/product/1">
     {{-- IMAGE CONTAINER --}}
     <main class="overflow-hidden">
         <img class="object-cover h-[300px] w-[280px] rounded-md duration-300 ease-in-out group-hover:scale-105" src="{{ asset('testcabin.jpeg')}}" alt="Uploaded Image">
