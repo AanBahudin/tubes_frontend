@@ -27,13 +27,15 @@ class OwnerController extends Controller
     public function tambahData(Request $request) {
         $username = $request->session()->get('username');
         $isLoggedIn = $request->session()->get('isLoggedIn');
+        $user_id = $request->session()->get('user_id');
         $role = $request->session()->get('role');
 
         return view('ownerPage/tambahData', [
             'title' => 'Add Property - Create your own property',
             'username' => $username,
             'isLoggedIn' => $isLoggedIn,
-            'role' => $role
+            'role' => $role,
+            'user_id' => $user_id
         ]);
     }
 
@@ -54,7 +56,7 @@ class OwnerController extends Controller
     {   
         $validateProduct = $request->validate([
             'nama' => 'required|max:20',
-            'tagline' => 'required|max:30',
+            'tagline' => 'required|max:100',
             'price' => 'required|numeric',
             'categories' => 'required',
             'description' => 'required|max:1000',
@@ -63,9 +65,9 @@ class OwnerController extends Controller
             'guest' => 'required',
             'bedroom' => 'required',
             'bed' => 'required',
-            'bath'=> 'required'
+            'bath'=> 'required',
+            'createdBy' => 'required'
         ]);
-        
 
         $validateProduct['image'] = $request->file('image')->store('product');
     

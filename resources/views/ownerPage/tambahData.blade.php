@@ -287,6 +287,8 @@
             <input type="hidden" name="bed" id="bedInput">
             <input type="hidden" name="bath" id="bathInput">
 
+            <input type="hidden" name="createdBy" value="{{ $user_id }}">
+
             <button type="submit"  class="bg-primary py-2 px-8 text-white font-semibold rounded-md mt-10 cursor-default">Create Property</button>
         </form>
     </div>

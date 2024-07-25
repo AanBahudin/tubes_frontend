@@ -17,13 +17,14 @@ return new class extends Migration
             $table->string('tagline');
             $table->string('price');
             $table->string('categories');
-            $table->string('description');
+            $table->text('description');
             $table->string('country');
             $table->string('image');
             $table->string('guest');
             $table->string('bedroom');
             $table->string('bed');
             $table->string('bath');
+            $table->string('createdBy');
             $table->timestamps();
         });
     }

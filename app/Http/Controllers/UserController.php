@@ -11,7 +11,7 @@ class UserController extends Controller
         $username = $request->session()->get('username');
         $role = $request->session()->get('role');
 
-        $Products = HotelModel::all()->paginate(2);
+        $Products = HotelModel::all();
 
         return view('welcome', [
             'title' => "GoHotels",
@@ -27,11 +27,15 @@ class UserController extends Controller
         $username = $request->session()->get('username');
         $role = $request->session()->get('role');
 
+        $Product = HotelModel::find($id);
+    
+
         return view('detail_property', [
             'title' => "Product Detail",
             'isLoggedIn' => $isLoggedIn,
             'username' => $username,
-            'role' => $role
+            'role' => $role,
+            'product' => $Product
         ]);
     }
     

@@ -3,20 +3,20 @@
     @include('components/navbar')
 
     <div class="w-[85%] mx-auto font-poppins pb-10">
-        @include('components/breadcrumbs', ['url' => '/', 'params' => "Cozy Cabin in Arizona" ])
+        @include('components/breadcrumbs', ['url' => '/', 'params' => $product['nama']])
 
         <main class="flex justify-between w-full">
-            <h1 class="text-3xl font-bold">Dream Getaway Awaits You Here</h1>
+            <h1 class="text-3xl font-bold">{{ $product['tagline'] }}</h1>
             <div class="border rounded-md py-1 px-2 flex justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 my-auto">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                   </svg>                  
                 </div>
         </main>
-        <img class="rounded-md my-8 object-bottom object-cover h-[500px] w-full" src="{{ asset('detail_cabin.jpg')}}" alt="">
+        <img class="rounded-md my-8 object-bottom object-cover h-[500px] w-full" src="{{ asset('storage/' . $product->image) }}" alt="">
 
-        <h4 class="font-bold text-lg">Cabin in Arizona</h4>
-        <h5>1 bedroom ·0 baths ·2 guests ·0 beds</h5>
+        <h4 class="font-bold text-lg">{{ $product['nama'] }}</h4>
+        <h5>{{ $product['bed'] }} bedroom · {{ $product['bath'] }} baths ·{{ $product['guest'] }} guests · {{ $product['bed'] }} beds</h5>
 
         {{-- owner information --}}
         <main class="w-auto flex gap-x-3 border-b border-slate-200 py-4 my-3">
@@ -32,7 +32,7 @@
 
 
         <h4 class="text-lg font-bold my-3">Description</h4>
-        <p class="leading-loose">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reprehenderit dolores asperiores, illum ex, rem reiciendis dignissimos nesciunt nisi consequatur hic totam ad, commodi a non? Porro tempora eaque odio voluptatum aliquid quaerat dicta quisquam similique! Deserunt libero ad, fugit velit ipsa nesciunt hic? Quas, omnis iure? Nam eius, deleniti veritatis eos quaerat esse velit tempore exercitationem aperiam quibusdam facilis cupiditate minus ipsum vel, ducimus quidem expedita similique. Sed ad nulla consequuntur aliquam! Aspernatur soluta reprehenderit architecto, molestiae, blanditiis consectetur harum ducimus eius dolorum veniam voluptate quidem praesentium officia quaerat unde facere ad beatae minima. Sit deleniti consectetur expedita assumenda!</p>
+        <p class="leading-loose">{{ $product['description'] }}</p>
 
         <h4 class="text-lg font-bold mt-5 mb-3">What this place offers</h4>
 
