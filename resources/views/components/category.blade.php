@@ -1,7 +1,7 @@
 <div class="py-12 grid grid-cols-10 ">
-    <a href="" class="group">
+    <a href="/?category=cabin" class="group">
         <main class="m-auto flex flex-col items-center w-[100px]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
             </svg>
             <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Cabin</p>
@@ -10,71 +10,66 @@
 
     <a href="" class="group">
         <main class="m-auto flex flex-col items-center w-[100px]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-              </svg>
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" class="w-8 h-8" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M254.07,106.79,208.53,53.73A16,16,0,0,0,196.26,48H32A16,16,0,0,0,16,64V176a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V112A8,8,0,0,0,254.07,106.79ZM230.59,104H176V64h20.26ZM104,104V64h56v40ZM88,64v40H32V64ZM80,200a16,16,0,1,1,16-16A16,16,0,0,1,80,200Zm112,0a16,16,0,1,1,16-16A16,16,0,0,1,192,200Zm31-24a32,32,0,0,0-62,0H111a32,32,0,0,0-62,0H32V120H240v56Z"></path></svg>
               <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Airstream</p>
         </main> 
     </a>
 
     <a href="" class="group">
         <main class="m-auto flex flex-col items-center w-[100px]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-              </svg>
+            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M11 14l4 6h6l-9 -16l-9 16h6l4 -6"></path></svg>
               <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Tent</p>
         </main>
     </a>
 
     <a href="" class="group">
         <main class="m-auto flex flex-col items-center w-[100px]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-              </svg>
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" class="w-8 h-8" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M240,184h-8V57.9l9.67-2.08a8,8,0,1,0-3.35-15.64l-224,48A8,8,0,0,0,16,104a8.16,8.16,0,0,0,1.69-.18L24,102.47V184H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM40,99,216,61.33V184H192V128a8,8,0,0,0-8-8H72a8,8,0,0,0-8,8v56H40Zm136,53H80V136h96ZM80,168h96v16H80Z"></path></svg>
               <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Warehouse</p>
         </main>
     </a>
 
 
-    <main class="m-auto flex flex-col items-center w-[100px]">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-          </svg>
-          <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Cottage</p>
-    </main>
+    <a href="" class="group">
+        <main class="m-auto flex flex-col items-center w-[100px]">
+            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3 21l18 0"></path><path d="M4 21v-11l2.5 -4.5l5.5 -2.5l5.5 2.5l2.5 4.5v11"></path><path d="M12 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M9 21v-5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v5"></path></svg>
+            <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Cottage</p>
+        </main>
+    </a>
 
-    <main class="m-auto flex flex-col items-center w-[100px]">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-          </svg>
-          <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Magic</p>
-    </main>
+    <a href="" class="group">
+        <main class="m-auto flex flex-col items-center w-[100px]">
+           <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-8 h-8" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M278.184 23.85c-7.308-.07-14.842 1.623-22.54 4.87-.622 8.336.112 17.717 2.513 26.449 3.557 12.938 10.511 24.183 20.761 30.386 9.331 5.647 21.937 7.9 40.162 2.512-3.313-7.037-6.408-13.858-9.328-20.219-6.409-13.962-12.187-25.902-17.685-33.611-5.498-7.71-9.568-10.346-13.883-10.387zm-40.717 15.153c-8.23 5.77-16.587 13.054-25.008 21.658-10.353 10.577-20.708 22.998-30.988 36.525 16.667 7.99 28.338 23.429 28.338 41.867 0 27.1-25.197 47.739-54.44 47.739-12.098 0-23.497-3.54-32.712-9.602-16.768 18.15-36.758 36.094-54.217 53.512-13.134 13.102-24.787 25.84-32.36 37.318-7.572 11.478-10.653 21.173-9.338 28.652 1.55 8.815 8.246 17.272 21.018 25.211 12.772 7.94 31.127 14.821 53.03 20.15 4.862 1.184 9.924 2.281 15.115 3.317a556.512 556.512 0 0 1 4.689-11.717c-12.85-3.626-23.03-9.762-29.27-18.644-4.816-6.856-6.363-15.362-4.677-23.826-43.658-38.757 37.63-90.032 56.652-49.82 9.162-3.47 18.94-6.288 29.113-8.583 24.4-5.502 51.298-7.937 78.17-8.312a566.841 566.841 0 0 1 26.77.273c35.431 1.182 69.269 5.454 95.445 10.748 13.088 2.648 24.24 5.537 32.916 8.54 4.338 1.5 8.053 3.018 11.23 4.693 3.179 1.674 5.908 3.215 8.356 6.615 21.523 29.898 4.995 67.307-23.06 75.918a228.827 228.827 0 0 1 3.4 9.521c18.19-4.32 37.743-9.87 53.717-17.548-7.212-8.34-11.586-19.363-11.586-31.303 0-15.037 6.94-28.617 17.748-37.217-5.637-6.602-12.25-13.356-19.64-20.24-14.225-13.25-30.732-26.752-46.743-40.766-22.075 26.075-61.685 27.981-79.691 13.694-22.675-19.321-22.258-55.489-1.528-80.436a67.633 67.633 0 0 1 14.264-12.89 380.021 380.021 0 0 1-5.086-9.618c-23.298 7.491-42.938 5.332-57.496-3.478-15.3-9.26-24.362-24.882-28.797-41.012a96.792 96.792 0 0 1-3.334-20.94zM170.541 112c-13.552 18.032-23.067 35.542-35.95 51.492 5.8 3.312 12.902 5.299 20.778 5.299 20.95 0 36.44-14.05 36.44-29.739 0-11.573-8.435-22.245-21.268-27.052zm170.791 17.59c-23.324 15.8-27.303 52.993-10.384 63.94 20.414 13.21 44.116 1.848 54.773-11.886-17.284-15.544-32.832-33.808-44.389-52.055zM94.392 274.71c8.271-10.582 19.145-18.998 31.813-25.7-9.8-22.51-49.318 12.963-31.812 25.7zm161.12-32.291c-8.38.042-17.535.34-25.025.763l3.232 25.254c7.108-.796 14.01-1.646 20.168-2.119zm16.5 22.65c5.992-.305 11.94-.5 17.793-.568l5.38-20.881c-7.841-.486-18.388-.799-21.88-.894zm-59.492-20.475c-7.897.803-15.634 1.843-23.121 3.141l9.22 26.344c5.561-1.121 11.354-2.15 17.278-3.1zm100.88.473l-5.066 19.656c7.178.273 14.089.779 20.635 1.53l11.662-17.989a598.712 598.712 0 0 0-27.23-3.197zm46.67 6.3l-11.767 18.151c5.595 1.428 10.53 2.875 15.324 4.953l19.69-18.209c-8.179-1.988-15.6-3.515-23.246-4.894zm-188.44.079a195.38 195.38 0 0 0-16.366 4.81l12.025 25.77a253.462 253.462 0 0 1 13.67-3.922zM403.3 262.3l-24.56 22.711c1.602 1.897 2.717 3.857 3.868 5.83l34.478-10.002c-1.94-10.183-5.378-15.24-13.787-18.539zm-264.722.768c-6.196 3.002-11.823 6.348-16.785 10.043l20.645 20.012c2.42-1.656 5.142-3.081 8.062-4.508zm337.692 5.96c-6.356 5.19-10.5 13.394-10.5 22.876 0 8.835 3.6 16.56 9.232 21.771 6.923-5.51 10.087-10.786 10.453-15.406.73-9.19-2.688-18.982-9.185-29.24zm-325.932 41.26c-30.59 68.297-41.478 96.049-28.799 155.995 3.377 15.964 100.92 23.155 152.487 21.68-1.331-11.917-2.927-31.423-2.045-51.286.708-15.96 2.876-32.22 8.812-45.73 5.937-13.51 17.363-24.953 33.442-25.662 16.577-.731 29.82 8.628 38.187 20.945 8.368 12.317 13.195 27.723 16.38 42.914 3.884 18.54 5.155 36.888 5.565 48.442 5.53-1.792 12.394-3.46 16.22-7.112 14.538-62.25 11.72-111.89-24.772-172.691-11.928-21.932-204.143-16.48-215.477 12.506zm-41.57-24.734c-4.67 7.298-6.647 13.299-2.715 19.086 3.169 4.51 10.563 9.343 21.705 12.197a1541.54 1541.54 0 0 1 3.983-9.013zm304.664 15.09l-21.95 6.367c1.271 2.506 2.474 5 3.64 7.489 7.459-1.639 14.22-6.793 18.31-13.856zM246.25 317.061c-6.284 29.944-9.3 55.793-7.916 83.795-30.594 3.96-65.724 3.13-90.535-2.533 3.118-27.371 8.504-58.314 18.649-78.861 29.318-5.2 52.538-8.855 79.802-2.4zm-37.008 13.844a360.228 360.228 0 0 0-3.439 17.506l15.984.289c.719-5.88 1.618-11.723 2.754-17.42-5.13-.515-10.369-.508-15.299-.375zm-18.716 1.48c-4.111.557-8.72-.246-12.028.583-1.742 4.044-2.443 10.062-3.691 14.882l12.799.23a368.846 368.846 0 0 1 2.92-15.695zm-19.416 33.4c-1.042 6.164-1.953 12.435-2.858 18.534 4.913.794 10.118 1.347 15.44 1.685.281-6.663.771-13.318 1.486-19.964zm32.142.583a291.763 291.763 0 0 0-1.556 19.976c6.24-.14 12.382-.53 18.138-1.162-.094-6.014.036-12.228.373-18.508zm111.776 16.902c-22.102 4.045-24.23 37.056-25.065 54.207-.865 19.481.862 38.912 2.145 50.002 22.329-1.37 44.217-2.54 64.351-6.006-.26-10.359-1.283-29.588-5.275-48.635-4.537-19.923-14.8-49.702-36.156-49.568zm24.377 45.631l2.103 17.877-17.902 2.105-2.104-17.875z"></path></svg>
+            <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Magic</p>
+        </main>
+    </a>
 
-    <main class="m-auto flex flex-col items-center w-[100px]">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-          </svg>
-          <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Container</p>
-    </main>
+    <a href="" class="group">
+        <main class="m-auto flex flex-col items-center w-[100px]">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="w-8 h-8" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M13.152.682a2.251 2.251 0 0 1 2.269 0l.007.004 6.957 4.276a2.277 2.277 0 0 1 1.126 1.964v7.516c0 .81-.432 1.56-1.133 1.968l-.002.001-11.964 7.037-.004.003c-.706.41-1.578.41-2.284 0l-.026-.015-6.503-4.502a2.268 2.268 0 0 1-1.096-1.943V9.438c0-.392.1-.77.284-1.1l.003-.006.014-.026c.197-.342.48-.627.82-.827h.002L13.152.681Zm.757 1.295h-.001L2.648 8.616l6.248 4.247a.775.775 0 0 0 .758-.01h.001l11.633-6.804-6.629-4.074a.75.75 0 0 0-.75.003ZM8.517 14.33a2.286 2.286 0 0 1-.393-.18l-.023-.014-6.102-4.147v7.003c0 .275.145.528.379.664l.025.014 6.114 4.232V14.33ZM18 9.709l-3.25 1.9v7.548L18 17.245Zm-7.59 4.438-.002.002a2.296 2.296 0 0 1-.391.18v7.612l3.233-1.902v-7.552Zm9.09-5.316v7.532l2.124-1.25a.776.776 0 0 0 .387-.671V7.363Z"></path></svg>
+            <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Container</p>
+        </main>
+    </a>
 
-    <main class="m-auto flex flex-col items-center w-[100px]">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-          </svg>
-          <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Caravan</p>
-    </main>
+    <a href="" class="group">
+        <main class="m-auto flex flex-col items-center w-[100px]">
+            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path><path d="M11 18h7a2 2 0 0 0 2 -2v-7a2 2 0 0 0 -2 -2h-9.5a5.5 5.5 0 0 0 -5.5 5.5v3.5a2 2 0 0 0 2 2h2"></path><path d="M8 7l7 -3l1 3"></path><path d="M13 11m0 .5a.5 .5 0 0 1 .5 -.5h2a.5 .5 0 0 1 .5 .5v2a.5 .5 0 0 1 -.5 .5h-2a.5 .5 0 0 1 -.5 -.5z"></path><path d="M20 16h2"></path></svg>
+            <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Caravan</p>
+        </main>
+    </a>
 
-    <main class="m-auto flex flex-col items-center w-[100px]">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-          </svg>
-          <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Tiny</p>
-    </main>
+    <a href="" class="group">
+        <main class="m-auto flex flex-col items-center w-[100px]">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" class="w-8 h-8" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M208,80a8,8,0,0,0-8,8v16H188.85L184,55.2A8,8,0,0,0,181.32,50L138.44,11.88l-.2-.17a16,16,0,0,0-20.48,0l-.2.17L74.68,50A8,8,0,0,0,72,55.2L67.15,104H56V88a8,8,0,0,0-16,0v24a8,8,0,0,0,8,8H65.54l-9.47,94.48A16,16,0,0,0,72,232H184a16,16,0,0,0,15.92-17.56L190.46,120H208a8,8,0,0,0,8-8V88A8,8,0,0,0,208,80ZM128,24l27,24H101ZM87.24,64h81.52l4,40H136V88a8,8,0,0,0-16,0v16H83.23ZM72,216l4-40H180l4,40Zm106.39-56H77.61l4-40h92.76Z"></path></svg>
+            <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Tiny</p>
+        </main>
+    </a>
 
-    <main class="m-auto flex flex-col items-center w-[100px]">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:stroke-primary duration-300 ease-in-out">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-          </svg>
-          <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Lodge</p>
-    </main>
+    <a href="" class="group">
+        <main class="m-auto flex flex-col items-center w-[100px]">
+           <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-8 h-8" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M495.145 15.451l-178.215.205s7.918 25.215 15.652 35.63c13.155 17.712 67.295 2.752 59.79 35.714h55.4c6.995-6.98 14.212-15.862 15.064-23.44 1.035-9.207-15.175-16.126-12.29-24.931 5.22-15.92 44.599-23.178 44.599-23.178zM256 28.311L30.455 238.82l32.666 21.777L256 83.79l192.879 176.807 32.666-21.778L256 28.31zM393 105v26.555l46 42.933V105h-46zm-137 3.209L209.318 151h93.364L256 108.209zM189.682 169l-32.727 30H279v-30h-89.318zM297 169v30h58.045l-32.727-30H297zm-159.682 48l-34.564 31.684 64.246-.288V217h-29.682zM185 217v31.316l222.76-.994L374.682 217H185zm242.303 48.236L83.02 266.773l-18.141 16.63-.932-.622A31.64 31.64 0 0 1 60.737 295H451.263a31.64 31.64 0 0 1-3.211-12.219l-.932.621-19.818-18.166zM32 267c-7.839 0-14 6.161-14 14s6.161 14 14 14 14-6.161 14-14-6.161-14-14-14zm448 0c-7.839 0-14 6.161-14 14s6.161 14 14 14 14-6.161 14-14-6.161-14-14-14zM59.656 313a31.659 31.659 0 0 1 1.08 30H103v-30H59.656zM121 313v78h46v-78h-46zm64 0v78h46v-78h-46zm64 0v30h30v-30h-30zm48 0v174h94V313h-94zm112 0v30h42.264a31.659 31.659 0 0 1 1.08-30H409zm-377 2c-7.839 0-14 6.161-14 14s6.161 14 14 14 14-6.161 14-14-6.161-14-14-14zm448 0c-7.839 0-14 6.161-14 14s6.161 14 14 14 14-6.161 14-14-6.161-14-14-14zM59.656 361a31.659 31.659 0 0 1 1.08 30H103v-30H59.656zM249 361v30h30v-30h-30zm160 0v30h42.264a31.659 31.659 0 0 1 1.08-30H409zm-377 2c-7.839 0-14 6.161-14 14s6.161 14 14 14 14-6.161 14-14-6.161-14-14-14zm448 0c-7.839 0-14 6.161-14 14s6.161 14 14 14 14-6.161 14-14-6.161-14-14-14zm-128 28h22v18h-22v-18zM59.656 409a31.659 31.659 0 0 1 1.08 30H279v-30H59.656zM409 409v30h42.264a31.659 31.659 0 0 1 1.08-30H409zm-377 2c-7.839 0-14 6.161-14 14s6.161 14 14 14 14-6.161 14-14-6.161-14-14-14zm448 0c-7.839 0-14 6.161-14 14s6.161 14 14 14 14-6.161 14-14-6.161-14-14-14zM32 457c-7.839 0-14 6.161-14 14s6.161 14 14 14 14-6.161 14-14-6.161-14-14-14zm28.736 0a31.659 31.659 0 0 1-1.08 30H87v-30H60.736zM105 457v30h174v-30H105zm304 0v30h43.344a31.659 31.659 0 0 1-1.08-30H409zm71 0c-7.839 0-14 6.161-14 14s6.161 14 14 14 14-6.161 14-14-6.161-14-14-14z"></path></svg>
+            <p class="mt-2 group-hover:text-primary duration-300 ease-in-out">Lodge</p>
+        </main>
+    </a>
+
 </div>
