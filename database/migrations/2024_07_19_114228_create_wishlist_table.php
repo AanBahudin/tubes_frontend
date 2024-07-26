@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('wishlist', function (Blueprint $table) {
             $table->id();
+            $table->string('productId');
             $table->string('name');
+            $table->string('tagline');
             $table->string('rating');
-            $table->string('description');
             $table->string('price');
             $table->string('image');
-            $table->string('createdBy');
-            // should be an array
-            
+            $table->string('country');
+            $table->string('user');
             $table->timestamps();
         });
     }
