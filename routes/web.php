@@ -31,6 +31,7 @@ Route::get('/profile', [UserController::class, 'showProfile'])->middleware(userM
 Route::get('/product/{id}', [UserController::class, 'productDetail']);
 
 Route::post('/profile/update/{id}', [UserController::class, 'updateProfile'])->middleware(userMiddleware::class);
+Route::post('/review/add', [UserController::class, 'addReview'])->middleware(userMiddleware::class);
 Route::get('/user/wishlist/{id}', [UserController::class, 'storeWishlist'])->middleware(userMiddleware::class);
 Route::get('/wishlist/delete/{id}', [UserController::class, 'deleteWishlist'])->middleware(userMiddleware::class);
 

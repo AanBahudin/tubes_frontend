@@ -142,6 +142,8 @@ class OwnerController extends Controller
 
     public function destroy(string $id)
     {
-        //
+
+        
+        return redirect('/owner/dashboard');
     }
 }

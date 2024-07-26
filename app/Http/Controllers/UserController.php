@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\HotelModel;
 use App\Models\Pengguna;
 use App\Models\Wishlist;
+use App\Models\Review;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -40,6 +41,11 @@ class UserController extends Controller
         // cek jika produk sudah ada didalam wishlist
         $isProductIsInWishlist = Wishlist::where('productId', $id)->where('user' , $user_id)->get()->first();
 
+        // mengambil data review berdasarkan produk yang ditampilkan
+        $allReview = Review::where('productId', $id)->get();
+
+        // mengambil data reviewer
+
         return view('detail_property', [
             'title' => "Product Detail",
             'isLoggedIn' => $isLoggedIn,
@@ -47,7 +53,9 @@ class UserController extends Controller
             'role' => $role,
             'product' => $Product,
             'productOwner' => $ownerInformation,
-            'alreadyInWishlist' => $isProductIsInWishlist
+            'alreadyInWishlist' => $isProductIsInWishlist,
+            'user_id' => $user_id,
+            'reviews' => $allReview
         ]);
     }
     
@@ -157,5 +165,19 @@ class UserController extends Controller
         $newWishlist->save();
 
         return redirect('/product/' . $Product->id);
+    }
+
+
+    public function addReview(Request $request) {
+        $validateReview = $request->validate([
+            'rating' => 'required|numeric',
+            'review' => 'required|max:200',
+            'userId' => 'required',
+            'productId' => 'required'
+        ]);
+
+        Review::create($validateReview);
+        return redirect('/product/' . $request->productId);
+
     }
 }

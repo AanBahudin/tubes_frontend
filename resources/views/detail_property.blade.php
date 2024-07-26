@@ -77,11 +77,11 @@
         {{-- leave a review --}}
 
 
-        <button type="submit" class="bg-primary {{ $role == "OWNER" || $role == "ADMIN" ? 'hidden' : 'flex-1' }} py-2 px-6 text-white font-semibold text-md rounded-md my-8 cursor-default">Leave a Review</button>
+        <button onclick="toggleFunc()" id="toggleReview" class="bg-primary {{ $role == "OWNER" || $role == "ADMIN" ? 'hidden' : 'flex-1' }} py-2 px-6 text-white font-semibold text-md rounded-md my-8 cursor-default">Leave a Review</button>
 
         {{-- review container --}}
-        <div class="w-full {{ $role == "OWNER" || $role == "ADMIN" ? 'hidden' : 'block' }} rounded-md py-10 px-8 border border-slate-200 mb-10">
-
+        <form id="reviewContainer" method="POST" action="/review/add" class="w-full {{ $role == "OWNER" || $role == "ADMIN" ? 'hidden' : 'block' }} rounded-md py-10 px-8 border border-slate-200 mb-10">
+            @csrf
             <label for="rating">Rating</label>
             <select class="block border-2 border-slate-200 px-3 py-1 rounded-md w-1/4 text-sm mt-2 focus:outline-primary placeholder:text-sm" name="rating" id="rating">
                 <option value="5">5</option>
@@ -91,15 +91,31 @@
                 <option value="1">1</option>
             </select>
 
-            <label for="feedback mt-4">Feedback</label>
-            <textarea class="border border-slate-200 w-full resize-none p-4 text-sm rounded-md focus:outline-primary mt-2" name="description" id="description" cols="30" rows="5"></textarea>
-        </div>
+            <input type="hidden" value="{{$product['id']}}" name="productId">
+            <input type="hidden" name="userId" value="{{ $user_id }}">
 
+            <label for="feedback mt-4">Feedback</label>
+            <textarea class="border border-slate-200 w-full resize-none p-4 text-sm rounded-md focus:outline-primary mt-2" name="review" id="review" cols="30" rows="5"></textarea>
+            <button type="submit" class="bg-primary w-fit py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Review</button>
+            
+        </form>
 
         <div class="my-16 gap-x-6 {{ $role != "OWNER" ? 'hidden' : '' }}">
             <a href="/owner/edit/{{ $product['id'] }}" class="bg-primary flex-initial w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Edit Property</a>
             <a href="" class="bg-red-500 flex-initial w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Delete Property</a>
         </div>
     </div>
+
+
+    <script>
+        const toggleFunc = () => {
+            console.log('get clicked');
+            const reviewContainers = document.getElementById('reviewContainer');
+            const toggleButton = document.getElementById('toggleReview');
+            reviewContainers.classList.toggle('hidden');
+        }
+        
+
+    </script>
 
 @endsectionw
