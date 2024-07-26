@@ -30,11 +30,11 @@ class OwnerController extends Controller
     public function detail(Request $request, String $id) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
         $username = $request->session()->get('username');
-        $nama = $request->session()->get('nama');
         $role = $request->session()->get('role');
         $user_id = $request->session()->get('user_id');
 
         $Product = HotelModel::where('id', $id)->get()->first();
+        $owner = Pengguna::where('id', $user_id)->get()->first();
         
         if ($Product['createdBy'] != $user_id) {
             return redirect('/owner/dashboard');
@@ -46,7 +46,7 @@ class OwnerController extends Controller
             'username' => $username,
             'role' => $role,
             'product' => $Product,
-            'productOwner' => $nama
+            'productOwner' => $owner
         ]);
     }
 

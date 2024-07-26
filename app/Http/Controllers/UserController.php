@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\HotelModel;
 use App\Models\Pengguna;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -43,14 +45,19 @@ class UserController extends Controller
     
     public function showProfile(Request $request) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
+        $user_id = $request->session()->get('user_id');
         $username = $request->session()->get('username');
         $role = $request->session()->get('role');
+
+        $currentUser = Pengguna::where('id', $user_id)->first();
 
         return view('profile', [
             'title' => "Profile",
             'isLoggedIn' => $isLoggedIn,
+            'user_id' => $user_id,
             'username' => $username,
-            'role' => $role
+            'role' => $role,
+            'user' => $currentUser
         ]);
     }
 
@@ -67,32 +74,32 @@ class UserController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function updateProfile(Request $request, Pengguna $id)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $user = $id;
+        $rules = ([
+            'nama' => 'required',
+            'email' => 'required',
+            'username' => 'required',
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        $validateUser = $request->validate($rules);
+        if ($request->file('image')) {
+            if($user->image) {
+                Storage::delete($user->image);
+            }
+            $validateUser['image'] = $request->file('image')->store('user');
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        Pengguna::where('id', $user->id)->update($validateUser);
+
+        // perbaharui session
+        Session::put('nama', $request->nama);
+        Session::put('username', $request->username);
+        Session::put('email', $request->email);
+
+        return redirect('/profile');
+
     }
 }

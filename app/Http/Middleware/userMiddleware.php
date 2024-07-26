@@ -34,11 +34,11 @@ class userMiddleware
             }
         }
 
-        if ($role == "ADMIN") {
-            return redirect('/admin/dashboard');
-        } else if ($role == "OWNER") {
-            return redirect('/owner/dashboard');
-        }
+        // if ($role == "ADMIN") {
+        //     return redirect('/admin/dashboard');
+        // } else if ($role == "OWNER") {
+        //     return redirect('/owner/dashboard');
+        // }
 
         return $next($request);
     }
