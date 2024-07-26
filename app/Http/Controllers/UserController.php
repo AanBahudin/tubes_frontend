@@ -39,7 +39,7 @@ class UserController extends Controller
             'username' => $username,
             'role' => $role,
             'product' => $Product,
-            'productOwner' => $ownerInformation['nama']
+            'productOwner' => $ownerInformation
         ]);
     }
     

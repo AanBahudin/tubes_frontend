@@ -21,11 +21,15 @@
         {{-- owner information --}}
         <main class="w-auto flex gap-x-3 border-b border-slate-200 py-4 my-3">
             {{-- profile photo --}}
-            <h1 class="text-3xl font-semibold px-4 py-2 rounded-md bg-primary text-white">A</h1>
+            @if ($productOwner->image)
+                <img class="w-14 h-14 object-cover rounded-md" src="{{ asset('storage/' . $productOwner->image) }}" alt="">
+            @else
+                <img class="w-14 h-14 object-cover rounded-md" src="{{ asset('public/no.jpg') }}" alt="">
+            @endif
 
             {{-- profile information --}}
             <section class="my-auto">
-                <h5>Hosted by <span class="font-semibold capitalize">{{ $productOwner }}</span></h5>
+                <h5>Hosted by <span class="font-semibold capitalize">{{ $productOwner->nama }}</span></h5>
                 <h1 class="text-gray-600">Owner · 2 years hosting</h1>
             </section>
         </main>

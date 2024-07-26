@@ -19,12 +19,25 @@ class userMiddleware
         $role = $request->session()->get('role');
         $currentUrl = request()->segment(count(request()->segments()));
 
+
+        if (!$currentUrl) {
+            if ($role == "ADMIN") {
+                return redirect('/admin/dashboard');
+            } else if ($role == "OWNER") {
+                return redirect('/owner/dashboard');
+            } else {
+                return $next($request);
+            }
+        }
+
         if ($currentUrl == "wishlist" || $currentUrl == "profile") {
             // checking if user haven't logged in
             if (!$isLoggedIn) {
                 return redirect('/');
             } else {
-                if ($currentUrl == "wishlist" && $role == "OWNER") {
+                if ($currentUrl == 'profile' && $isLoggedIn) {
+                    return $next($request);
+                } else if ($currentUrl == "wishlist" && $role == "OWNER") {
                     return redirect('/owner/dashboard');
                 } else if ($currentUrl == "wishlist" && $role == "ADMIN") {
                     return redirect('/admin/dashboard');
