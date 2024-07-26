@@ -12,9 +12,16 @@
                 <p class="text-sm mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                 <button class="px-7 py-2 border grow-0 border-primary bg-white text-primary rounded-md ease-in-out duration-150 hover:shadow-lg cursor-default">Explore</button>
             </main>
-
+            
             <main class="flex-1">
                 <h1 class="text-3xl font-semibold text-[#1D1C1B] mb-7">Welcome <br> Back Traveller !</h1>
+    
+                @if (session()->has('success'))
+                    <main id="notifBar" class="w-full bg-green-400 p-4 rounded-md shadow-lg" onclick="toggleNotif()">
+                        <h1 class="font-medium text-white">{{session('success')}}</h1>
+                    </main>
+                @endif
+
                 <form class="flex flex-col items-start " action="/auth/login" method="post">
                     @csrf
                     
@@ -85,6 +92,11 @@
                     passwordInput.type = 'password'
                 }
             })
+        }
+
+        const toggleNotif = () => {
+            const notifBar = document.getElementById('notifBar');
+            notifBar.classList.add('hidden');
         }
 
     </script>

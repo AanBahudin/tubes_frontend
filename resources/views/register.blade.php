@@ -21,19 +21,19 @@
 
                     <div class="flex w-full flex-col mt-4">
                         <label for="firstname" class="text-sm">Fullname</label>
-                        <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="John Doe" type="text" name="nama" required autofocus>
+                        <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="John Doe" type="text" name="nama" required autofocus autocomplete="off">
                     </div>
 
                     {{-- 2 COLUMN INPUT --}}
                     <div class="flex w-full gap-x-4 mt-4">
                         <section class="flex-1">
                             <label for="username" class="text-sm">Username</label>
-                            <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="johndoe" type="text" name="username" required>
+                            <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="johndoe" type="text" name="username" required autocomplete="off">
                         </section>
 
                         <section class="flex-1">
                             <label for="email" class="text-sm">Email</label>
-                            <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="johndoe@gmail.com" type="email" name="email" required>
+                            <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="johndoe@gmail.com" type="email" name="email" required  autocomplete="off">
                         </section>
                     </div>
 
@@ -65,16 +65,9 @@
                     {{-- PASSWORD --}}
                     <div class="flex w-full flex-col mt-4">
                         <label for="password" class="text-sm">Password</label>
-                        <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full mt-2 focus:outline-primary" id="passwordInput" type="password" placeholder="******" name="password" required>
+                        <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full mt-2 focus:outline-primary" id="passwordInput" type="password" placeholder="******" name="password" required  autocomplete="off">
                     </div>
 
-                    
-                    {{-- CONFIRM PASSWORD --}}
-                    {{-- <div class="flex w-full flex-col mt-4">
-                        <label for="confirm_pass" class="text-sm">Confirm Password</label>
-                        <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full mt-2 focus:outline-primary" type="password" placeholder="******" name="confirm_pass" required>
-                    </div> --}}
-                    
                     {{-- SHOW PASSWORD CHECKBOX --}}
                     <div class="flex gap-x-4 mt-2">
                         <input id="showPassword" class="block" type="checkbox" name="showPassword" id="showPassword" onchange="showPasswordfunc()">
@@ -106,32 +99,25 @@
         userRoleInput.value = "USER";
 
         const travellerClick = () => {
-            userRole.addEventListener('click', function(event) {
-                ownerPropertyRole.classList.remove('border-primary', 'shadow-xl')
-                userRole.classList.add('border', 'border-primary', 'shadow-xl');
-                userRoleInput.value = "USER";
-                descriptionRole.textContent = "you can select property to stay";
-
-            })
+            ownerPropertyRole.classList.remove('border-primary', 'shadow-xl')
+            userRole.classList.add('border', 'border-primary', 'shadow-xl');
+            userRoleInput.value = "USER";
+            descriptionRole.textContent = "you can select property to stay";
         }
 
         const propertyOwner = () => {
-            ownerPropertyRole.addEventListener('click', function(event) {
-                userRole.classList.remove('border-primary', 'shadow-xl');
-                ownerPropertyRole.classList.add('border', 'border-primary', 'shadow-xl');
-                userRoleInput.value = "OWNER";
-                descriptionRole.textContent = "you can enlist your property so traveller can stay in your place";
-            })
+            userRole.classList.remove('border-primary', 'shadow-xl');
+            ownerPropertyRole.classList.add('border', 'border-primary', 'shadow-xl');
+            userRoleInput.value = "OWNER";
+            descriptionRole.textContent = "you can enlist your property so traveller can stay in your place";
         }
 
         const showPasswordfunc = () => {
-            showPasswordCheckbox.addEventListener('change', function(event) {
-                if (showPasswordCheckbox.checked) {
-                    passwordInput.type = 'text'
-                } else {
-                    passwordInput.type = 'password'
-                }
-            })
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = 'text'
+            } else {
+                passwordInput.type = 'password'
+            }
         }
         
 

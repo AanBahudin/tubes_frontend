@@ -15,16 +15,20 @@ class OwnerController extends Controller
         $username = $request->session()->get('username');
         $user_id = $request->session()->get('user_id');
         $role = $request->session()->get('role');
+        $profilePhoto = $request->session()->get('profilePhoto');
 
-        $Products = HotelModel::where('createdBy', $user_id)->get();
+        dd($profilePhoto);
 
-        return view('ownerPage/dashboard', [
-            'isLoggedIn' => $isLoggedIn,
-            'title' => 'Dashboard - Manage your property',
-            'username' => $username,
-            'role' => $role,
-            'products' => $Products
-        ]);
+        // $Products = HotelModel::where('createdBy', $user_id)->get();
+
+        // return view('ownerPage/dashboard', [
+        //     'isLoggedIn' => $isLoggedIn,
+        //     'title' => 'Dashboard - Manage your property',
+        //     'username' => $username,
+        //     'role' => $role,
+        //     'products' => $Products,
+        //     'profilePhoto' => $profilePhoto
+        // ]);
     }
 
     public function detail(Request $request, String $id) {
@@ -32,6 +36,7 @@ class OwnerController extends Controller
         $username = $request->session()->get('username');
         $role = $request->session()->get('role');
         $user_id = $request->session()->get('user_id');
+        $profilePhoto = $request->session()->get('profilePhoto');
 
         $Product = HotelModel::where('id', $id)->get()->first();
         $owner = Pengguna::where('id', $user_id)->get()->first();
@@ -46,7 +51,8 @@ class OwnerController extends Controller
             'username' => $username,
             'role' => $role,
             'product' => $Product,
-            'productOwner' => $owner
+            'productOwner' => $owner,
+            'profilePhoto' => $profilePhoto
         ]);
     }
 
@@ -56,13 +62,15 @@ class OwnerController extends Controller
         $isLoggedIn = $request->session()->get('isLoggedIn');
         $user_id = $request->session()->get('user_id');
         $role = $request->session()->get('role');
+        $profilePhoto = $request->session()->get('profilePhoto');
 
         return view('ownerPage/tambahData', [
             'title' => 'Add Property - Create your own property',
             'username' => $username,
             'isLoggedIn' => $isLoggedIn,
             'role' => $role,
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'profilePhoto' => $profilePhoto
         ]);
     }
 
@@ -71,7 +79,8 @@ class OwnerController extends Controller
         $isLoggedIn = $request->session()->get('isLoggedIn');
         $owner_id = $request->session()->get('user_id');
         $role = $request->session()->get('role');
-
+        $profilePhoto = $request->session()->get('profilePhoto');
+        
         $Product = HotelModel::where('id', $id)->get()->first();
 
         if ($Product['createdBy'] != $owner_id) {
@@ -83,7 +92,8 @@ class OwnerController extends Controller
             'username' => $username,
             'isLoggedIn' => $isLoggedIn,
             'role' => $role,
-            'product' => $Product
+            'product' => $Product,
+            'profilePhoto' => $profilePhoto
         ]);
     }
 

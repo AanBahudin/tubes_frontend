@@ -15,6 +15,7 @@ class UserController extends Controller
         $isLoggedIn = $request->session()->get('isLoggedIn');
         $username = $request->session()->get('username');
         $role = $request->session()->get('role');
+        $profilePhoto = $request->session()->get('profilePhoto');
 
         $Products;
         $currentQuery = strtoupper($request->input('category'));
@@ -30,6 +31,7 @@ class UserController extends Controller
             'isLoggedIn' => $isLoggedIn,
             'username' => $username,
             'role' => $role,
+            'profilePhoto' => $profilePhoto,
             'products' => $Products,
             'currentQuery' => $currentQuery
         ]);
@@ -40,6 +42,8 @@ class UserController extends Controller
         $username = $request->session()->get('username');
         $user_id = $request->session()->get('user_id');
         $role = $request->session()->get('role');
+        $profilePhoto = $request->session()->get('profilePhoto');
+
 
         // mengambil salah satu data yang ada pada url
         $Product = HotelModel::find($id);
@@ -62,6 +66,7 @@ class UserController extends Controller
             'product' => $Product,
             'productOwner' => $ownerInformation,
             'alreadyInWishlist' => $isProductIsInWishlist,
+            'profilePhoto' => $profilePhoto,
             'user_id' => $user_id,
             'reviews' => $allReview
         ]);
@@ -72,6 +77,8 @@ class UserController extends Controller
         $user_id = $request->session()->get('user_id');
         $username = $request->session()->get('username');
         $role = $request->session()->get('role');
+        $profilePhoto = $request->session()->get('profilePhoto');
+
 
         $currentUser = Pengguna::where('id', $user_id)->first();
 
@@ -81,6 +88,7 @@ class UserController extends Controller
             'user_id' => $user_id,
             'username' => $username,
             'role' => $role,
+            'profilePhoto' => $profilePhoto,
             'user' => $currentUser
         ]);
     }
@@ -90,6 +98,8 @@ class UserController extends Controller
         $username = $request->session()->get('username');
         $user_id = $request->session()->get('user_id');
         $role = $request->session()->get('role');
+        $profilePhoto = $request->session()->get('profilePhoto');
+
 
         $product = Wishlist::where('user', $user_id)->get();
 
@@ -98,6 +108,7 @@ class UserController extends Controller
             'isLoggedIn' => $isLoggedIn,
             'username' => $username,
             'role'=> $role,
+            'profilePhoto' => $profilePhoto,
             'products' => $product
         ]);
     }
@@ -139,6 +150,7 @@ class UserController extends Controller
         Session::put('nama', $request->nama);
         Session::put('username', $request->username);
         Session::put('email', $request->email);
+        Session::put('profilePhoto', $validateUser['image'] ?? $user->image);
 
         return redirect('/profile');
 

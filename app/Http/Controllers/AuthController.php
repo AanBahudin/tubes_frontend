@@ -29,7 +29,8 @@ class AuthController extends Controller
         return view('login', [
             'title' => 'Login in to your account',
             'isLoggedIn' => $isLoggedIn,
-            'username' => $username
+            'username' => $username,
+            'profilePhoto' => ""
         ]);
     }
 
@@ -40,6 +41,7 @@ class AuthController extends Controller
         return view('register', [
             'title' => 'Create your own account',
             'isLoggedIn' => $isLoggedIn,
+            'profilePhoto' => "",
             'username' => $username
         ]);
     }
@@ -72,6 +74,7 @@ class AuthController extends Controller
         Session::put('username', $isEmailExist->username);
         Session::put('email', $isEmailExist->email);
         Session::put('role', $isEmailExist->role);
+        Session::put('profilePhoto', $isEmailExist->image);
         Session::put('isLoggedIn', TRUE);
 
         return redirect('/');
@@ -91,7 +94,7 @@ class AuthController extends Controller
         $validateUser['password'] = Hash::make($request->password);
         Pengguna::create($validateUser);
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Register Berhasil, Login untuk memulai');
     }
 
     public function logout(Request $request) {

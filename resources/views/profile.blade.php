@@ -13,7 +13,7 @@
             @if ($user->image) 
                 <img class="w-36 h-36 object-cover rounded-md" src="{{ asset('storage/' . $user->image) }}" alt="">
             @else
-                <img class="w-36 h-36 object-cover rounded-md" src="{{ asset('storage/' . $user->image) }}" alt="">
+                <img class="w-36 h-36 object-cover rounded-md" alt="">
             @endif
 
 
