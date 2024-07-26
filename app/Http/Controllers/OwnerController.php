@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\HotelModel;
 use App\Models\Pengguna;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class OwnerController extends Controller
 {
@@ -73,7 +74,7 @@ class OwnerController extends Controller
 
         $Product = HotelModel::where('id', $id)->get()->first();
 
-        if ($Product['created_by'] != $owner_id) {
+        if ($Product['createdBy'] != $owner_id) {
             return redirect('owner/dashboard');
         }
 
@@ -109,9 +110,34 @@ class OwnerController extends Controller
         return redirect('/owner/dashboard');
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, HotelModel $id)
     {
-        
+
+        $product = $id;
+        $rules = ([
+            'nama' => 'required',
+            'tagline' => 'required|max:100',
+            'price' => 'required|numeric',
+            'categories' => 'required',
+            'description' => 'required|max:1000',
+            'country' => 'required',
+            'image' => 'required|max:1024',
+            'guest' => 'required',
+            'bedroom' => 'required',
+            'bed' => 'required',
+            'bath'=> 'required',
+        ]);
+
+        $validateProduct = $request->validate($rules);
+        if ($request->file('image')) {
+            if($product->image) {
+                Storage::delete($product->image);
+            }
+            $validateProduct['image'] = $request->file('image')->store('product');
+        }
+
+        HotelModel::where('id', $product->id)->update($validateProduct);
+        return redirect('/owner/dashboard');
     }
 
     public function destroy(string $id)

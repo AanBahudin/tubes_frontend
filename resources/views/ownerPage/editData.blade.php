@@ -5,7 +5,7 @@
     <div class="w-fullSize mx-auto font-poppins">
         @include('components/breadcrumbs', ['url' => "/owner/dashboard", 'params' => "Edit Property"])
 
-        <form method="POST" enctype="multipart/form-data" class="p-10 border border-slate-200 rounded-md">
+        <form method="POST" action="{{ url('/owner/update/' . $product['id']) }}" enctype="multipart/form-data" class="p-10 border border-slate-200 rounded-md">
             @csrf
             <h1 class="text-lg mb-5 font-semibold">General Info</h1>
 
@@ -13,7 +13,7 @@
             <div class="w-full flex gap-x-10 justify-between">
                 <main class="flex-1">
                     <label for="title" class="text-sm">Name (20 Limit)</label>
-                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="text" name="name" required autofocus value="{{ $product['nama'] }}">
+                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="text" name="nama" required autofocus value="{{ $product['nama'] }}">
                 </main>
 
                 <main class="flex-1">
@@ -288,10 +288,10 @@
 
 
             {{-- INPUT FOR ACCOMODATION --}}
-            <input type="hidden" name="guest" id="guestInput">
-            <input type="hidden" name="bedroom" id="bedroomInput">
-            <input type="hidden" name="bed" id="bedInput">
-            <input type="hidden" name="bath" id="bathInput">
+            <input type="hidden" name="guest" id="guestInput" value="{{ $product['guest']}}">
+            <input type="hidden" name="bedroom" id="bedroomInput" value="{{ $product['bedroom']}}">
+            <input type="hidden" name="bed" id="bedInput" value="{{ $product['bed']}}">
+            <input type="hidden" name="bath" id="bathInput" value="{{ $product['bath']}}">
 
             <button type="submit"  class="bg-primary py-2 px-8 text-white font-semibold rounded-md mt-10 cursor-default">Update Property</button>
         </form>

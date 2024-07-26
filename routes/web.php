@@ -46,4 +46,4 @@ Route::get('/owner/detail/{id}', [OwnerController::class, 'detail'])->middleware
 Route::get('/owner/edit/{id}', [OwnerController::class, 'editData'])->middleware(checkOwnerMiddleware::class);
 
 Route::post('/owner/tambah', [OwnerController::class, 'store'])->middleware(checkOwnerMiddleware::class);
-Route::post('/owner/update/{id}', [OwnerController::class, 'store'])->middleware(checkOwnerMiddleware::class);
+Route::post('/owner/update/{id}', [OwnerController::class, 'update'])->middleware(checkOwnerMiddleware::class);
