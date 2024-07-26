@@ -80,7 +80,7 @@
         <button onclick="toggleFunc()" id="toggleReview" class="bg-primary {{ $role == "OWNER" || $role == "ADMIN" ? 'hidden' : 'flex-1' }} py-2 px-6 text-white font-semibold text-md rounded-md my-8 cursor-default">Leave a Review</button>
 
         {{-- review container --}}
-        <form id="reviewContainer" method="POST" action="/review/add" class="w-full {{ $role == "OWNER" || $role == "ADMIN" ? 'hidden' : 'block' }} rounded-md py-10 px-8 border border-slate-200 mb-10">
+        <form id="reviewContainer" method="POST" action="/review/add" class="w-full hidden {{ $role == "OWNER" || $role == "ADMIN" ? 'hidden' : 'block' }} rounded-md py-10 px-8 border border-slate-200 mb-10">
             @csrf
             <label for="rating">Rating</label>
             <select class="block border-2 border-slate-200 px-3 py-1 rounded-md w-1/4 text-sm mt-2 focus:outline-primary placeholder:text-sm" name="rating" id="rating">
@@ -104,7 +104,24 @@
             <a href="/owner/edit/{{ $product['id'] }}" class="bg-primary flex-initial w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Edit Property</a>
             <a href="" class="bg-red-500 flex-initial w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Delete Property</a>
         </div>
+
+
+        <h4 class="text-lg font-bold my-3">Reviews</h4>
+
+        @if ($reviews->isNotEmpty())
+            <section class="grid grid-cols-2 font-poppins gap-x-6">
+                @include('components/review_card')
+            </section>
+        @else
+            <div class="font-poppins text-primary text-xl font-semibold ">
+                <h2>No Reviews Yet</h2>
+            </div>
+        @endif
+
+        
     </div>
+
+
 
 
     <script>
@@ -114,8 +131,6 @@
             const toggleButton = document.getElementById('toggleReview');
             reviewContainers.classList.toggle('hidden');
         }
-        
-
     </script>
 
-@endsectionw
+@endsection
