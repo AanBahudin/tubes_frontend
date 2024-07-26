@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('bed');
             $table->string('bath');
             $table->string('createdBy');
+            $table->string('ownerName');
             $table->timestamps();
         });
     }

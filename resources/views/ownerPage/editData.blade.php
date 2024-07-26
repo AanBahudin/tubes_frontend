@@ -13,12 +13,12 @@
             <div class="w-full flex gap-x-10 justify-between">
                 <main class="flex-1">
                     <label for="title" class="text-sm">Name (20 Limit)</label>
-                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="text" name="name" required autofocus>
+                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="text" name="name" required autofocus value="{{ $product['nama'] }}">
                 </main>
 
                 <main class="flex-1">
                     <label for="tagline" class="text-sm">Tagline Name (30 Limit)</label>
-                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="text" name="tagline" required>
+                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="text" name="tagline" required value="{{ $product['nama'] }}">
                 </main>
             </div>
 
@@ -26,35 +26,33 @@
             <div class="w-full flex gap-x-10 justify-between my-5">
                 <main class="flex-1">
                     <label for="title" class="text-sm">Price $</label>
-                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="text" name="name" required autofocus>
+                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="number" name="price" required autofocus value="{{ $product['price'] }}">
                 </main>
 
-                <main class="flex-1">
-                    <label for="categories" class="text-sm">Categories</label>
-                    <select class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" name="categories" id="categories">
-                        <option value="CABIN">Cabin</option>
-                        <option value="AIRSTREAM">Airstream</option>
-                        <option value="TENT">Tent</option>
-                        <option value="WAREHOUSE">Warehouse</option>
-                        <option value="COTTAGE">Cottage</option>
-                        <option value="MAGIC">Magic</option>
-                        <option value="CONTAINER">Container</option>
-                        <option value="CARAVAN">Caravan</option>
-                        <option value="TINY">Tiny</option>
-                        <option value="LODGE">Lodge</option>
-                    </select>
-                </main>
+            
+            <main class="flex-1">
+                <label for="categories" class="text-sm">Categories</label>
+                <select class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" name="categories" id="categories" value="{{ $product['categories'] }}">
+                    @php
+                        $categoryData = ['CABIN', 'AIRSTREAM', 'TENT', 'WAREHOUSE', 'COTTAGE', 'MAGIC','CONTAINER', 'CARAVAN', 'TINY', 'LODGE'];
+                    @endphp
+                    @foreach ($categoryData as $data)
+                        <option class="capitalize" value="{{ $data }}" {{ $product['categories'] == $data ? 'selected' : '' }}>{{ $data }}</option>
+                    @endforeach
+                </select>
+            </main>
+            
             </div>
 
             <div class="w-full my-5">
                 <label for="description" class="text-sm">Description (10 - 1000 words)</label>
-                <textarea class="border border-slate-200 w-full resize-none p-4 text-sm rounded-md focus:outline-primary mt-2" name="description" id="description" cols="30" rows="5"></textarea>
+                <textarea class="border border-slate-200 w-full resize-none p-4 text-sm rounded-md focus:outline-primary mt-2" name="description" id="description" cols="30" rows="5" >{{ $product['description'] }}</textarea>
             </div>
 
-            <div class="w-full flex gap-x-10 justify-between">
+            <div class="w-full flex-col gap-y-10 justify-between">
                 <main class="flex-1">
                     <label for="title" class="text-sm">Country</label>
-                    <select class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" name="categories" id="categories">
+                    <select class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" name="country" id="categories">
                         <option value="Indonesia">Indonesia</option>
                         <option value="AIRSTREAM">Airstream</option>
                         <option value="TENT">Tent</option>
@@ -68,9 +66,17 @@
                     </select>
                 </main>
 
+                @if ($product->image)
+                    <img class="img-preview h-72 w-auto object-cover rounded-md my-5" src="{{ asset('storage/' . $product->image) }}" alt="" id="img-preview" >
+                @else
+                    <img class="img-preview h-36 w-auto object-cover rounded-md my-5" src="{{ asset('no.jpg') }}" alt="" id="img-preview" >
+                @endif
+
+               
+
                 <main class="flex-1">
                     <label for="image" class="text-sm">Image</label>
-                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="file" name="tagline" required>
+                    <input class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" placeholder="Cozy Cabin" type="file" name="image" id="image" required onchange="previewImage()">
                 </main>
             </div>
 
@@ -92,7 +98,7 @@
                         </svg>
                     </div>
                     
-                    <span id="guestNumber" class="text-3xl my-auto font-semibold">0</span>
+                    <span id="guestNumber" class="text-3xl my-auto font-semibold">{{ $product['guest'] }}</span>
                     
                     <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('guest', 'inc')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
@@ -116,7 +122,7 @@
                         </svg>
                     </div>
                     
-                    <span id="bedroomNumber" class="text-3xl my-auto font-semibold">0</span>
+                    <span id="bedroomNumber" class="text-3xl my-auto font-semibold">{{ $product['bedroom'] }}</span>
                     
                     <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('bedroom', 'inc')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
@@ -140,7 +146,7 @@
                         </svg>
                     </div>
                     
-                    <span id="bedNumber" class="text-3xl my-auto font-semibold">0</span>
+                    <span id="bedNumber" class="text-3xl my-auto font-semibold">{{ $product['bed'] }}</span>
                     
                     <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('bed', 'inc')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
@@ -164,7 +170,7 @@
                         </svg>
                     </div>
                     
-                    <span id="bathNumber" class="text-3xl my-auto font-semibold pointer-events-none">0</span>
+                    <span id="bathNumber" class="text-3xl my-auto font-semibold pointer-events-none">{{ $product['bath'] }}</span>
                     
                     <div class="flex justify-center p-2 border border-slate-200 rounded-md hover:bg-gray-100" onclick="addNumberOfAccomodation('bath', 'inc')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
@@ -283,9 +289,9 @@
 
             {{-- INPUT FOR ACCOMODATION --}}
             <input type="hidden" name="guest" id="guestInput">
-            <input type="hidden" name="guest" id="bedroomInput">
-            <input type="hidden" name="guest" id="bedInput">
-            <input type="hidden" name="guest" id="bathInput">
+            <input type="hidden" name="bedroom" id="bedroomInput">
+            <input type="hidden" name="bed" id="bedInput">
+            <input type="hidden" name="bath" id="bathInput">
 
             <button type="submit"  class="bg-primary py-2 px-8 text-white font-semibold rounded-md mt-10 cursor-default">Update Property</button>
         </form>
@@ -295,6 +301,19 @@
 
     <script>
         
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+
         // get number of each accomodations
         let numberOfGuest = document.getElementById('guestNumber');
         let numberOfBedroom = document.getElementById('bedroomNumber');

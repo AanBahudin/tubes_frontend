@@ -42,6 +42,8 @@ Route::get('/admin/users', [AdminController::class, 'showUser'])->middleware(che
 
 Route::get('/owner/dashboard', [OwnerController::class, 'index'])->middleware(checkOwnerMiddleware::class);
 Route::get('/owner/add', [OwnerController::class, 'tambahData'])->middleware(checkOwnerMiddleware::class);
+Route::get('/owner/detail/{id}', [OwnerController::class, 'detail'])->middleware(checkOwnerMiddleware::class);
 Route::get('/owner/edit/{id}', [OwnerController::class, 'editData'])->middleware(checkOwnerMiddleware::class);
 
 Route::post('/owner/tambah', [OwnerController::class, 'store'])->middleware(checkOwnerMiddleware::class);
+Route::post('/owner/update/{id}', [OwnerController::class, 'store'])->middleware(checkOwnerMiddleware::class);

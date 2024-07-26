@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\HotelModel;
+use App\Models\Pengguna;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -28,14 +29,15 @@ class UserController extends Controller
         $role = $request->session()->get('role');
 
         $Product = HotelModel::find($id);
-    
+        $ownerInformation = Pengguna::where('id', $Product['createdBy'])->get()->first();
 
         return view('detail_property', [
             'title' => "Product Detail",
             'isLoggedIn' => $isLoggedIn,
             'username' => $username,
             'role' => $role,
-            'product' => $Product
+            'product' => $Product,
+            'productOwner' => $ownerInformation['nama']
         ]);
     }
     

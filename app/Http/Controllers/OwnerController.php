@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\HotelModel;
+use App\Models\Pengguna;
 use Illuminate\Support\Facades\Session;
 
 class OwnerController extends Controller
@@ -11,9 +12,10 @@ class OwnerController extends Controller
     public function index(Request $request) {
         $isLoggedIn = $request->session()->get('isLoggedIn');
         $username = $request->session()->get('username');
+        $user_id = $request->session()->get('user_id');
         $role = $request->session()->get('role');
 
-        $Products = HotelModel::all();
+        $Products = HotelModel::where('createdBy', $user_id)->get();
 
         return view('ownerPage/dashboard', [
             'isLoggedIn' => $isLoggedIn,
@@ -23,6 +25,30 @@ class OwnerController extends Controller
             'products' => $Products
         ]);
     }
+
+    public function detail(Request $request, String $id) {
+        $isLoggedIn = $request->session()->get('isLoggedIn');
+        $username = $request->session()->get('username');
+        $nama = $request->session()->get('nama');
+        $role = $request->session()->get('role');
+        $user_id = $request->session()->get('user_id');
+
+        $Product = HotelModel::where('id', $id)->get()->first();
+        
+        if ($Product['createdBy'] != $user_id) {
+            return redirect('/owner/dashboard');
+        }
+
+        return view('ownerPage/detail_property_owner', [
+            'title' => "Product Detail",
+            'isLoggedIn' => $isLoggedIn,
+            'username' => $username,
+            'role' => $role,
+            'product' => $Product,
+            'productOwner' => $nama
+        ]);
+    }
+
 
     public function tambahData(Request $request) {
         $username = $request->session()->get('username');
@@ -42,13 +68,21 @@ class OwnerController extends Controller
     public function editData(Request $request, String $id) {
         $username = $request->session()->get('username');
         $isLoggedIn = $request->session()->get('isLoggedIn');
+        $owner_id = $request->session()->get('user_id');
         $role = $request->session()->get('role');
+
+        $Product = HotelModel::where('id', $id)->get()->first();
+
+        if ($Product['created_by'] != $owner_id) {
+            return redirect('owner/dashboard');
+        }
 
         return view('ownerPage/editData', [
             'title' => 'Edit Propery',
             'username' => $username,
             'isLoggedIn' => $isLoggedIn,
-            'role' => $role
+            'role' => $role,
+            'product' => $Product
         ]);
     }
 
@@ -75,25 +109,11 @@ class OwnerController extends Controller
         return redirect('/owner/dashboard');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         //
