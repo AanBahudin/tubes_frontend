@@ -16,14 +16,22 @@ class UserController extends Controller
         $username = $request->session()->get('username');
         $role = $request->session()->get('role');
 
-        $Products = HotelModel::all();
+        $Products;
+        $currentQuery = strtoupper($request->input('category'));
+        
+        if (!$currentQuery) {
+            $Products = HotelModel::all();
+        } else {
+            $Products = HotelModel::where('categories', $currentQuery)->get();
+        }
 
         return view('welcome', [
             'title' => "GoHotels",
             'isLoggedIn' => $isLoggedIn,
             'username' => $username,
             'role' => $role,
-            'products' => $Products
+            'products' => $Products,
+            'currentQuery' => $currentQuery
         ]);
     }
 
