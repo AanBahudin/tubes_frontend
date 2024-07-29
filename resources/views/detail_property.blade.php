@@ -5,17 +5,29 @@
     <div class="w-[85%] mx-auto font-poppins pb-10">
         @include('components/breadcrumbs', ['url' => '/', 'params' => $product['nama']])
 
+        @if (session()->has('success'))
+            <main id="notifBar" class="w-full bg-green-400 p-2 text-center rounded-md shadow-lg my-4" onclick="toggleNotif()">
+                <h1 class="font-medium text-white">{{session('success')}}</h1>
+            </main>
+        @endif
+
+        @if (session()->has('error'))
+            <main id="notifBar" class="w-full bg-red-400 text-center p-2 my-4 rounded-md shadow-lg" onclick="toggleNotif()">
+                <h1 class="font-medium text-white">{{session('error')}}</h1>
+            </main>
+        @endif
+
         <main class="flex justify-between w-full">
             <h1 class="text-3xl font-bold">{{ $product['tagline'] }}</h1>
 
             @if ($alreadyInWishlist && $isLoggedIn == TRUE)
-                <a href="/wishlist/delete/{{ $alreadyInWishlist['id'] }}" class="border rounded-md py-1 px-2 flex justify-center bg-primary">
+                <a href="/wishlist/delete/{{ $alreadyInWishlist['id'] }}" class="border rounded-md py-1 px-2 flex justify-center bg-primary {{ $role == "ADMIN" ? 'hidden' : '' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 my-auto pointer-events-none stroke-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>                  
                 </a>
             @else
-                <a href="/user/wishlist/{{ $product['id'] }}" class="border rounded-md py-1 px-2 flex justify-center">
+                <a href="/user/wishlist/{{ $product['id'] }}" class="border rounded-md py-1 px-2 flex justify-center {{ $role == "ADMIN" ? 'hidden' : '' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 my-auto pointer-events-none">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>                  
@@ -56,26 +68,33 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46" />
                   </svg>
-                <p class="my-auto">Bbq Grill With A Masterchef Diploma</p>                  
+                <p class="my-auto">Total Guest Maximum - {{ $product->guest }} Person</p>                  
             </main>
 
             <main class="flex gap-x-5">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46" />
                   </svg>
-                <p class="my-auto">Private Bathroom (Bushes Nearby)</p>                  
+                <p class="my-auto">Private Bathroom Available - {{ $product->bath }} Bathrooms</p>                  
             </main>
 
             <main class="flex gap-x-5">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46" />
                   </svg>
-                <p class="my-auto">Outdoor Furniture (Tree Stumps)</p>                  
+                <p class="my-auto">Private Bedroom Available - {{ $product->bedroom }} Bedrooms</p>                  
+            </main>
+
+            <main class="flex gap-x-5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary my-auto">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46" />
+                  </svg>
+                <p class="my-auto">Private Bed Available - {{ $product->bed }} Bed</p>                  
             </main>
         </div>
         
-        {{-- leave a review --}}
-
+        {{-- ONLY FOR ADMIN --}}
+        <a href="/admin/delete/product/{{ $product['id'] }}" class="bg-primary {{ $role != "ADMIN" ? 'hidden' : '' }} block w-fit py-2 px-6 text-white font-semibold rounded-md mt-7 cursor-default">Delete Property</a>
 
         <button onclick="toggleFunc()" id="toggleReview" class="bg-primary {{ $role == "OWNER" || $role == "ADMIN" ? 'hidden' : 'flex-1' }} py-2 px-6 text-white font-semibold text-md rounded-md my-8 cursor-default">Leave a Review</button>
 
@@ -102,23 +121,25 @@
 
         <div class="my-16 gap-x-6 {{ $role != "OWNER" ? 'hidden' : '' }}">
             <a href="/owner/edit/{{ $product['id'] }}" class="bg-primary flex-initial w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Edit Property</a>
-            <a href="" class="bg-red-500 flex-initial w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Delete Property</a>
+            <a href="/owner/delete/{{ $product['id'] }}" class="bg-red-500 flex-initial w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Delete Property</a>
         </div>
+        
+        
 
-
-        <h4 class="text-lg font-bold my-3">Reviews</h4>
+        <h4 class="text-lg font-bold my-3 {{ $role == "ADMIN" ? 'hidden' : '' }}">Reviews</h4>
 
         @if ($reviews->isNotEmpty())
-            <section class="grid grid-cols-2 font-poppins gap-x-6">
+            <section class="grid grid-cols-2 font-poppins gap-x-6 {{ $role == "ADMIN" ? 'hidden' : '' }}">
                 @include('components/review_card')
             </section>
         @else
-            <div class="font-poppins text-primary text-xl font-semibold ">
+            <div class="{{ $role == "ADMIN" ? 'hidden' : '' }} font-poppins text-primary text-xl font-semibold ">
                 <h2>No Reviews Yet</h2>
             </div>
         @endif
 
         
+        {{-- only show if user is admin --}}
     </div>
 
 

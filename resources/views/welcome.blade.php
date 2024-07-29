@@ -2,9 +2,17 @@
 @section('content')
     @include('components/navbar')
 
+    @if (session()->has('success'))
+        <main id="notifBar" class="w-full bg-green-400 p-2 text-center rounded-md shadow-lg" onclick="toggleNotif()">
+            <h1 class="font-medium text-white">{{session('success')}}</h1>
+        </main>
+    @endif
+   
     <div class="w-[70%] mx-auto">
         @include('components/category')
     </div>
+
+    
 
     {{-- CARD SECTION --}}
     

@@ -9,17 +9,6 @@
         </a>
     </section>
 
-    {{-- SEARCH INPUT --}}
-    <div class="justify-between flex py-3 px-6 space-x-6 w-3/12">
-        <form action="" class="w-full mx-w-md">
-            <div class="relative flex items-center text-gray-400 focus-within:text">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 absolute ml-3 pointer-events-none">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                </svg>
-                <input class="w-full pr-3 pl-10 py-2 bg-gray-50 rounded-md outline-none border-2 focus:border-primary focus:shadow-xl placeholder:text-sm text-slate-800 text-sm ease-in-out duration-300" type="text" autocomplete="off" placeholder="Sunset Resort">
-            </div>
-        </form>
-    </div>
 
     {{-- LOGIN & REGISTER BUTTON --}}
     <section class="my-auto relative ease-in-out duration-300" id="toggle-btn" onclick="tonggleDropdown()">
@@ -47,6 +36,7 @@
             <a class="w-full {{$isLoggedIn ? 'hidden' : 'visible'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/login">Login</a>
             <a class="w-full {{$isLoggedIn ? 'hidden' : 'visible'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/register">Register</a>
 
+            <a class="w-full {{$isLoggedIn == TRUE && $role == 'ADMIN' ? 'visible' : 'hidden'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/admin/users">User</a>
             <a class="w-full {{$isLoggedIn == TRUE && $role == 'USER' ? 'visible' : 'hidden'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/wishlist">Wishlist</a>
             <a class="w-full {{$isLoggedIn && $role == 'OWNER' ? 'visible' : 'hidden'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/owner/add">Add Property</a>
             <a class="w-full {{$isLoggedIn ? 'visible' : 'hidden'}} rounded-md text-sm hover:bg-slate-200 py-1 px-2 cursor-pointer" href="/profile">Profile</a>

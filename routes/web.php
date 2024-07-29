@@ -42,6 +42,11 @@ Route::get('/wishlist/delete/{id}', [UserController::class, 'deleteWishlist'])->
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->middleware(checkAdminMiddleware::class);
 Route::get('/admin/property', [AdminController::class, 'showProperty'])->middleware(checkAdminMiddleware::class);
 Route::get('/admin/users', [AdminController::class, 'showUser'])->middleware(checkAdminMiddleware::class);
+Route::get('/admin/users/{id}', [AdminController::class, 'showDetailUser'])->middleware(checkAdminMiddleware::class);
+
+Route::get('/admin/delete/user/{id}', [AdminController::class, 'deleteUser'])->middleware(checkAdminMiddleware::class);
+Route::get('/admin/delete/product/{id}', [AdminController::class, 'deleteProduct'])->middleware(checkAdminMiddleware::class);
+
 
 
 // OWNER
@@ -53,3 +58,4 @@ Route::get('/owner/edit/{id}', [OwnerController::class, 'editData'])->middleware
 
 Route::post('/owner/tambah', [OwnerController::class, 'store'])->middleware(checkOwnerMiddleware::class);
 Route::post('/owner/update/{id}', [OwnerController::class, 'update'])->middleware(checkOwnerMiddleware::class);
+Route::get('/owner/delete/{id}', [OwnerController::class, 'destroy'])->middleware(checkOwnerMiddleware::class);

@@ -56,15 +56,13 @@ class AuthController extends Controller
         $isEmailExist = Pengguna::where('email', $email)->first();
 
         if (!$isEmailExist) {
-            dd("email is not found!");
-
-            // later throw new error message
+            return redirect('/login')->with("error", "Email tidak ditemukan");
         }
 
         // check user password
         $isPasswordMatch = Hash::check($password, $isEmailExist->password);
         if (!$isPasswordMatch) {
-            dd("password salah");
+            return redirect('/login')->with("error", "Password salah, coba lagi");
         }
 
         // store data 
@@ -77,7 +75,15 @@ class AuthController extends Controller
         Session::put('profilePhoto', $isEmailExist->image);
         Session::put('isLoggedIn', TRUE);
 
-        return redirect('/');
+        
+        if ($isEmailExist->role == "OWNER") {
+            return redirect('/')->with('success', 'Berhasil Login');
+        } else if ($isEmailExist->role == "ADMIN") {
+            return redirect('/')->with('success', 'Berhasil Login');
+        } else {
+            return redirect('/')->with('success', 'Berhasil Login');
+        }
+
 
     }
 
@@ -100,6 +106,6 @@ class AuthController extends Controller
     public function logout(Request $request) {
         $request->session()->flush();
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Logout!');
     }
 }

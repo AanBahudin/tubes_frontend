@@ -54,18 +54,7 @@
             <div class="w-full flex gap-x-10 justify-between">
                 <main class="flex-1">
                     <label for="title" class="text-sm">Country</label>
-                    <select class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" name="country" id="country">
-                        <option value="Indonesia">Indonesia</option>
-                        <option value="AIRSTREAM">Airstream</option>
-                        <option value="TENT">Tent</option>
-                        <option value="WAREHOUSE">Warehouse</option>
-                        <option value="COTTAGE">Cottage</option>
-                        <option value="MAGIC">Magic</option>
-                        <option value="CONTAINER">Container</option>
-                        <option value="CARAVAN">Caravan</option>
-                        <option value="TINY">Tiny</option>
-                        <option value="LODGE">Lodge</option>
-                    </select>
+                    <input type="text" class="block border-2 border-slate-200 px-3 py-1 rounded-md w-full text-sm mt-2 focus:outline-primary placeholder:text-sm" name="country" id="country">
                 </main>
 
                 <main class="flex-1">
@@ -173,113 +162,6 @@
                     </div>
                 </main>
             </div>
-
-            
-            {{-- Amenities --}}
-            <h1 class="font-semibold mt-9 mb-5 text-lg pointer-events-none">Accomodation Details</h1>
-
-            <div class="w-full grid grid-cols-2 gap-y-3">
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Unlimited Cloud Storage</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Self-Lighting Fire Pit</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Outdoor Furniture (Tree Stumps)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Hot Shower (Sun Required)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Natural Heating (Bring A Coat)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Bed Linens (Leaves)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Picnic Table (Yet Another Tree Stump)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Solar Power (Daylight)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Cooking Utensils (Sticks And Stones)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Lanterns (Fireflies)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">VIP Parking For Squirrels</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Bbq Grill With A Masterchef Diploma</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Private Bathroom (Bushes Nearby)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Kitchenette (Aka Fire Pit)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Air Conditioning (Breeze From The West)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Towels (More Leaves)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Hammock (Two Trees And A Rope)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Water Supply (River A Mile Away)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">Cool Box (Hole In The Ground)</label>
-                </div>
-
-                <div class="flex gap-x-2 font-semibold">
-                    <input class="border-2 checked:border-primary" type="checkbox" name="amenities">
-                    <label class="text-sm" for="">First Aid Kit (Hope And Prayers)</label>
-                </div>
-            </div>
-
 
             {{-- INPUT FOR ACCOMODATION --}}
             <input type="hidden" name="guest" id="guestInput">

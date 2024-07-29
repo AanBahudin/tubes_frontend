@@ -68,12 +68,6 @@
                         <input class="block border-2 border-slate-100 px-3 py-1 rounded-md w-full mt-2 focus:outline-primary" id="passwordInput" type="password" placeholder="******" name="password" required  autocomplete="off">
                     </div>
 
-                    {{-- SHOW PASSWORD CHECKBOX --}}
-                    <div class="flex gap-x-4 mt-2">
-                        <input id="showPassword" class="block" type="checkbox" name="showPassword" id="showPassword" onchange="showPasswordfunc()">
-                        <label class="text-sm" for="showPassword">Show Password</label>
-                    </div>
-
                     <button type="submit" class="bg-primary flex-1 w-full py-2 px-8 text-white font-semibold rounded-md mt-4 cursor-default">Create Account</button>
                     
                 </form>

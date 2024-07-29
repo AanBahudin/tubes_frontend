@@ -1,5 +1,11 @@
 @extends('layout/main')
 @section('content')
     @include('components/navbar')
-    <h1>All user for admin</h1>
+    
+
+    <div class="w-[70%] mx-auto">
+        @include('components/userCategory_admin')
+    </div>
+
+    @include('components/user_card')
 @endsection

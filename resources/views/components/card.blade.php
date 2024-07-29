@@ -1,7 +1,7 @@
 {{-- CARD CONTAINER --}}
 
 @foreach ($products as $product)
-<a class="max-w-[280px] group cursor-default font-poppins pointer-events-auto" href="{{ $role == 'OWNER' ? '/owner/detail/' . $product['id'] : '/product/' . $product['id'] }}">
+    <a class="max-w-[280px] group cursor-default font-poppins pointer-events-auto" href="{{ $role == 'OWNER' ? '/owner/detail/' . $product['id'] : '/product/' . $product['id'] }}">
         {{-- IMAGE CONTAINER --}}
         <main class="overflow-hidden">
             <img class="object-cover h-[300px] w-[280px] rounded-md duration-300 ease-in-out group-hover:scale-105" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->nama }}">

@@ -123,12 +123,11 @@ class UserController extends Controller
         $productId = Wishlist::where('id', $id)->get()->first();
         Wishlist::where('id', $id)->delete();
 
-        return redirect('/product/' . $productId->productId);
+        return redirect('/product/' . $productId->productId)->with('error', 'Dihapus dari Favorite');
     }
 
     public function updateProfile(Request $request, Pengguna $id)
     {
-
         $user = $id;
         $rules = ([
             'nama' => 'required',
@@ -152,7 +151,7 @@ class UserController extends Controller
         Session::put('email', $request->email);
         Session::put('profilePhoto', $validateUser['image'] ?? $user->image);
 
-        return redirect('/profile');
+        return redirect('/profile')->with('success', "Profil Diperbaharui");
 
     }
 
@@ -184,11 +183,18 @@ class UserController extends Controller
         
         $newWishlist->save();
 
-        return redirect('/product/' . $Product->id);
+        return redirect('/product/' . $Product->id)->with('success', 'Ditambahkan ke Favorite!');
     }
 
 
     public function addReview(Request $request) {
+
+        $isLoggedIn = $request->session()->get('isLoggedIn');
+
+        if (!$isLoggedIn) {
+            return redirect('/login');
+        }
+
         $validateReview = $request->validate([
             'rating' => 'required|numeric',
             'review' => 'required|max:200',

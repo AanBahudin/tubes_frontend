@@ -2,6 +2,16 @@
 @section('content')
     @include('components/navbar')
 
+    @if (session()->has('success'))
+        <main id="notifBar" class="w-full bg-green-400 p-2 text-center rounded-md shadow-lg">
+            <h1 class="font-medium text-white">{{session('success')}}</h1>
+        </main>
+    @endif
+
+    <div class="w-[70%] mx-auto">
+        @include('components/category')
+    </div>
+
     @if ($products->isNotEmpty())
         <div class="w-full md:w-fullSize mx-auto grid grid-cols-1 justify-items-center md:grid-cols-3 xl:grid-cols-4 gap-10 p-4">
             @include('components/card')

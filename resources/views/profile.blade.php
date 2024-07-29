@@ -6,6 +6,12 @@
         @include('components/breadcrumbs', ['url' => '/', 'params' => request()->segment(count(request()->segments()))])
         <h1 class="text-3xl font-bold">Your Profile</h1>
 
+        @if (session()->has('success'))
+            <main id="notifBar" class="w-full bg-green-400 text-center p-2 rounded-md shadow-lg" onclick="toggleNotif()">
+                <h1 class="font-medium text-white">{{session('success')}}</h1>
+            </main>
+        @endif
+
         {{-- UPDATE PROFILE SECTION --}}
         <form action="/profile/update/{{ $user_id }}" method="POST" enctype="multipart/form-data" class="rounded-md w-full my-8 p-10 border border-slate-200">
             @csrf

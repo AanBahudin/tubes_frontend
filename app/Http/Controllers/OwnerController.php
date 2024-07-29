@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\HotelModel;
 use App\Models\Pengguna;
+use App\Models\Wishlist;
+use App\Models\Review;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,18 +19,24 @@ class OwnerController extends Controller
         $role = $request->session()->get('role');
         $profilePhoto = $request->session()->get('profilePhoto');
 
-        dd($profilePhoto);
+        $Products;
+        $currentQuery = strtoupper($request->input('category'));
+        
+        if (!$currentQuery) {
+            $Products = HotelModel::where('createdBy', $user_id)->latest()->get();
+        } else {
+            $Products = HotelModel::where('categories', $currentQuery)->where('createdBy', $user_id)->latest()->get();
+        }
 
-        // $Products = HotelModel::where('createdBy', $user_id)->get();
-
-        // return view('ownerPage/dashboard', [
-        //     'isLoggedIn' => $isLoggedIn,
-        //     'title' => 'Dashboard - Manage your property',
-        //     'username' => $username,
-        //     'role' => $role,
-        //     'products' => $Products,
-        //     'profilePhoto' => $profilePhoto
-        // ]);
+        return view('ownerPage/dashboard', [
+            'isLoggedIn' => $isLoggedIn,
+            'title' => 'Dashboard - Manage your property',
+            'username' => $username,
+            'role' => $role,
+            'products' => $Products,
+            'profilePhoto' => $profilePhoto,
+            'currentQuery' => $currentQuery 
+        ]);
     }
 
     public function detail(Request $request, String $id) {
@@ -94,7 +102,7 @@ class OwnerController extends Controller
             'role' => $role,
             'product' => $Product,
             'profilePhoto' => $profilePhoto
-        ]);
+        ])->with('success', 'Properti Berhasil Diedit');
     }
 
     public function store(Request $request)
@@ -104,9 +112,9 @@ class OwnerController extends Controller
             'tagline' => 'required|max:100',
             'price' => 'required|numeric',
             'categories' => 'required',
-            'description' => 'required|max:1000',
+            'description' => 'required',
             'country' => 'required',
-            'image' => 'required|max:1024',
+            'image' => 'required|max:3024',
             'guest' => 'required',
             'bedroom' => 'required',
             'bed' => 'required',
@@ -117,7 +125,7 @@ class OwnerController extends Controller
         $validateProduct['image'] = $request->file('image')->store('product');
     
         HotelModel::create($validateProduct);
-        return redirect('/owner/dashboard');
+        return redirect('/owner/dashboard')->with('success', 'Properti Berhasil Disimpan');
     }
 
     public function update(Request $request, HotelModel $id)
@@ -129,9 +137,9 @@ class OwnerController extends Controller
             'tagline' => 'required|max:100',
             'price' => 'required|numeric',
             'categories' => 'required',
-            'description' => 'required|max:1000',
+            'description' => 'required',
             'country' => 'required',
-            'image' => 'required|max:1024',
+            'image' => 'max:3024',
             'guest' => 'required',
             'bedroom' => 'required',
             'bed' => 'required',
@@ -147,13 +155,25 @@ class OwnerController extends Controller
         }
 
         HotelModel::where('id', $product->id)->update($validateProduct);
-        return redirect('/owner/dashboard');
+        return redirect('/owner/dashboard')->with('success', 'Property Berhasil Diperbaharui!');
     }
 
-    public function destroy(string $id)
+    public function destroy(Request $request, string $id)
     {
+        $role = $request->session()->get('role');
+        $user_id = $request->session()->get('user_id');
 
-        
+        if ($role != "OWNER") {
+            return redirect('/');
+        }
+
+        // hapus data di product
+        HotelModel::where('id', $id)->delete();
+        // hapus data di wishlist
+        Wishlist::where('productId', $id)->delete();
+        // hapus review yang berkaitan dengan product
+        Review::where('productId', $id)->delete();
+
         return redirect('/owner/dashboard');
     }
 }
